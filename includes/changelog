@@ -1,4 +1,11 @@
-<h1 id='change-logs'>Change Logs</h1><h3 id='2021-01-10'>2021-01-10</h3>
+<h1 id='change-logs'>Change Logs</h1><h3 id='2021-01-12'>2021-01-12</h3>
+<p>Upbit Client Released: v1.1.6.13</p>
+
+<ul>
+<li><code>setup.py</code> 소스 코드 리팩토링</li>
+<li><a href="https://github.com/uJhin/python-upbit-client">Python Upbit Client</a> 저장소 생성 후 분기</li>
+</ul>
+<h3 id='2021-01-10'>2021-01-10</h3>
 <p>Upbit Client Released: v1.1.6.12</p>
 
 <ul>

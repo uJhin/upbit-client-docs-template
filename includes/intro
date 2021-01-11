@@ -20,6 +20,13 @@
   </li>
   <li>
     <b>
+      <a href="https://github.com/uJhin/upbit-client/">
+        <img src="/images/github.svg"/> GitHub Repository for Python Package
+      </a>
+    </b>
+  </li>
+  <li>
+    <b>
       <a href="https://pypi.org/project/upbit-client/">
         <img src="/images/pypi.svg"/>
         <img src="https://img.shields.io/pypi/v/upbit-client"/>
