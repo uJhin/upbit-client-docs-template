@@ -308,7 +308,7 @@
         <ul class="search-results"></ul>
       <ul id="toc" class="toc-list-h1">
           <li>
-            <a href="#intro" class="toc-h1 toc-link" data-title="Intro (개요)">Intro (개요)</a>
+            <a href="#upbit-client-official-reference" class="toc-h1 toc-link" data-title="Upbit Client Official Reference">Upbit Client Official Reference</a>
               <ul class="toc-list-h2">
                   <li>
                     <a href="#referance" class="toc-h2 toc-link" data-title="Referance">Referance</a>
@@ -336,10 +336,18 @@
               </ul>
           </li>
           <li>
-            <a href="#authentication" class="toc-h1 toc-link" data-title="Authentication (인증)">Authentication (인증)</a>
+            <a href="#intro" class="toc-h1 toc-link" data-title="Intro (개요)">Intro (개요)</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#support" class="toc-h2 toc-link" data-title="Support">Support</a>
+                  </li>
+              </ul>
           </li>
           <li>
             <a href="#install" class="toc-h1 toc-link" data-title="Install (설치)">Install (설치)</a>
+          </li>
+          <li>
+            <a href="#authentication" class="toc-h1 toc-link" data-title="Authentication (인증)">Authentication (인증)</a>
           </li>
           <li>
             <a href="#upbitclient-upbit" class="toc-h1 toc-link" data-title="UpbitClient (Upbit 클라이언트 사용하기)">UpbitClient (Upbit 클라이언트 사용하기)</a>
@@ -482,7 +490,7 @@
     <div class="page-wrapper">
       <div class="dark-box"></div>
       <div class="content">
-        <h1 id='intro'>Intro (개요)</h1>
+        <h1 id='upbit-client-official-reference'>Upbit Client Official Reference</h1>
 <p><img src="images/logo-b6eb5752.png" width="250" height="250"></p>
 
 <p><strong>Upbit OPEN API Client 사용법과 설명에 대한 문서입니다.</strong></p>
@@ -582,6 +590,31 @@
 <ul>
 <li>Upbit OPEN API 버전이 1.1.6로 업데이트 되어 최신 버전에 맞춰 구현 및 배포</li>
 </ul>
+<h1 id='intro'>Intro (개요)</h1>
+<p>Upbit Client(업비트 클라이언트)는 업비트 OPEN API에 접근할 수 있는 인터페이스를 제공합니다.</p>
+<h2 id='support'>Support</h2>
+<ul>
+<li><a href="https://docs.upbit.com/">Official Upbit OPEN API Documents</a></li>
+<li><a href="https://github.com/swagger-api">Swagger</a></li>
+</ul>
+<h1 id='install'>Install (설치)</h1>
+<blockquote>
+<p>pip command</p>
+</blockquote>
+<div class="highlight"><pre class="highlight console tab-console"><code><span class="go">pip install upbit-client
+</span></code></pre></div>
+<blockquote>
+<p>git command</p>
+</blockquote>
+<div class="highlight"><pre class="highlight console tab-console"><code><span class="go">git clone https://github.com/uJhin/upbit-client.git
+</span></code></pre></div>
+<p>설치는 <code>pip</code> 커맨드를 사용하여 다음과 같이 진행합니다.</p>
+
+<p><code>pip install upbit-client</code></p>
+
+<p>혹은 <code>git</code> 커맨드를 사용하여 다음과 같이 진행합니다.</p>
+
+<p><code>git clone https://github.com/uJhin/upbit-client.git</code></p>
 <h1 id='authentication'>Authentication (인증)</h1>
 <blockquote>
 <p>Request Example</p>
@@ -618,24 +651,6 @@ payload의 <code>query_hash</code> 값을 생성할 때 사용하는 쿼리 값�
 <aside class="warning">
 Signature 생성시 secret encoding 옵션을 확인해주세요. <b>발급된 <code>secret key</code>는 base64로 encoding 되어있지 않습니다.</b> JWT 관련 library를 사용하신다면 해당 옵션을 확인해주세요.
 </aside>
-<h1 id='install'>Install (설치)</h1>
-<blockquote>
-<p>pip command</p>
-</blockquote>
-<div class="highlight"><pre class="highlight console tab-console"><code><span class="go">pip install upbit-client
-</span></code></pre></div>
-<blockquote>
-<p>git command</p>
-</blockquote>
-<div class="highlight"><pre class="highlight console tab-console"><code><span class="go">git clone https://github.com/uJhin/upbit-client.git
-</span></code></pre></div>
-<p>설치는 <code>pip</code> 커맨드를 사용하여 다음과 같이 진행합니다.</p>
-
-<p><code>pip install upbit-client</code></p>
-
-<p>혹은 <code>git</code> 커맨드를 사용하여 다음과 같이 진행합니다.</p>
-
-<p><code>git clone https://github.com/uJhin/upbit-client.git</code></p>
 <h1 id='upbitclient-upbit'>UpbitClient (Upbit 클라이언트 사용하기)</h1>
 <blockquote>
 <p>Code Example</p>
