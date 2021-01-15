@@ -1,7 +1,10 @@
 <h1 id='change-logs'>Change Logs</h1><h3 id='2021-01-15'>2021-01-15</h3>
-<p>Upbit Client Released: v1.1.6.15
-- 남은 요청 수 확인 기능 추가
-- 본 문서의 <code>remaining_request</code> 파트 참고</p>
+<p>Upbit Client Released: v1.1.6.15</p>
+
+<ul>
+<li>남은 요청 수 확인 기능 추가</li>
+<li>본 문서의 <code>remaining_request</code> 파트 참고</li>
+</ul>
 <h3 id='2021-01-12'>2021-01-12</h3>
 <p>Upbit Client Released: v1.1.6.14</p>
 
