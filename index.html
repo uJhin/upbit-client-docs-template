@@ -323,6 +323,9 @@
             <a href="#change-logs" class="toc-h1 toc-link" data-title="Change Logs">Change Logs</a>
               <ul class="toc-list-h2">
                   <li>
+                    <a href="#2021-01-15" class="toc-h2 toc-link" data-title="2021-01-15">2021-01-15</a>
+                  </li>
+                  <li>
                     <a href="#2021-01-12" class="toc-h2 toc-link" data-title="2021-01-12">2021-01-12</a>
                   </li>
                   <li>
@@ -352,12 +355,37 @@
           </li>
           <li>
             <a href="#upbitclient-upbit" class="toc-h1 toc-link" data-title="UpbitClient (Upbit 클라이언트 사용하기)">UpbitClient (Upbit 클라이언트 사용하기)</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#upbitclient-access_key-secret_key-kwargs" class="toc-h2 toc-link" data-title="UpbitClient(access_key, secret_key, **kwargs)">UpbitClient(access_key, secret_key, **kwargs)</a>
+                  </li>
+              </ul>
           </li>
           <li>
             <a href="#apikey-api" class="toc-h1 toc-link" data-title="APIKey (API 키)">APIKey (API 키)</a>
               <ul class="toc-list-h2">
                   <li>
                     <a href="#apikey_info-api" class="toc-h2 toc-link" data-title="APIKey_info (API 키 리스트 조회)">APIKey_info (API 키 리스트 조회)</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#request-limits" class="toc-h1 toc-link" data-title="Request Limits (요청 수 제한)">Request Limits (요청 수 제한)</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#exchange-api" class="toc-h2 toc-link" data-title="EXCHANGE API">EXCHANGE API</a>
+                  </li>
+                  <li>
+                    <a href="#quotation-api" class="toc-h2 toc-link" data-title="QUOTATION API">QUOTATION API</a>
+                  </li>
+                  <li>
+                    <a href="#remaining_request" class="toc-h2 toc-link" data-title="remaining_request (남은 요청 수 확인하기)">remaining_request (남은 요청 수 확인하기)</a>
+                  </li>
+                  <li>
+                    <a href="#remaining_request-result" class="toc-h2 toc-link" data-title="remaining_request(result)">remaining_request(result)</a>
+                  </li>
+                  <li>
+                    <a href="#result" class="toc-h2 toc-link" data-title="result">result</a>
                   </li>
               </ul>
           </li>
@@ -564,7 +592,11 @@
 <li><strong>BTC</strong>: 3NVw2seiTQddGQwc1apqudKxuTqebpyL3s</li>
 <li><strong>ETH</strong>: 0x60dd373f59862d9df776596889b997e24bee42eb</li>
 </ul>
-<h1 id='change-logs'>Change Logs</h1><h3 id='2021-01-12'>2021-01-12</h3>
+<h1 id='change-logs'>Change Logs</h1><h3 id='2021-01-15'>2021-01-15</h3>
+<p>Upbit Client Released: v1.1.6.15
+- 남은 요청 수 확인 기능 추가
+- 본 문서의 <code>remaining_request</code> 파트 참고</p>
+<h3 id='2021-01-12'>2021-01-12</h3>
 <p>Upbit Client Released: v1.1.6.14</p>
 
 <ul>
@@ -673,7 +705,7 @@ Signature 생성시 secret encoding 옵션을 확인해주세요. <b>발급된 <
 </span></code></pre></div>
 <p>설치가 완료되면 <code>from upbit.client import Upbit</code>로 패키지를 import 합니다.
 그 다음 <code>UpbitClient</code> 객체를 생성하면 클라이언트를 사용할 준비가 완료됩니다.</p>
-
+<h3 id='upbitclient-access_key-secret_key-kwargs'>UpbitClient(access_key, secret_key, **kwargs)</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -745,6 +777,111 @@ Signature 생성시 secret encoding 옵션을 확인해주세요. <b>발급된 <
 <tr>
 <td>expire_at</td>
 <td>유효 기간</td>
+</tr>
+</tbody></table>
+<h1 id='request-limits'>Request Limits (요청 수 제한)</h1><h3 id='exchange-api'>EXCHANGE API</h3><h4 id='e02b5db235'>주문</h4>
+<p><code>초당 8회</code>, <code>분당 200회</code></p>
+<h4 id='api'>주문 외 API</h4>
+<p><code>초당 30회</code>, <code>분당 900회</code></p>
+
+<p><strong>Exchange API 추가 안내 사항</strong>
+- 본 기준은 개별 Open API Key에 대한 요청 수 제한 기준 입니다.
+- 본 기준 내의 요청의 경우에도 하나의 계정으로 여러 개의 Open API Key를 이용하여 요청할 경우, 업비트 전체 서비스의 안정적인 제공을 위하여 요청 수 제한이 발생할 수 있습니다.
+- 서비스 및 서버 상황 등에 따라 상기 요청 수가 일시적으로 보장되지 않을 수 있습니다.
+- 사용 가능한 잔여 요청 수는 하단의 잔여 요청 수 확인 방법을 참고하시어 확인하실 수 있습니다.
+- (업데이트) 주문 API와 주문 외 API 요청 수 제한은 별도로 계산 됩니다.</p>
+<h3 id='quotation-api'>QUOTATION API</h3><h4 id='websocket'>Websocket 연결 요청 수 제한</h4>
+<p><code>초당 5회</code>, <code>분당 100회</code></p>
+<h4 id='rest-api'>REST API 요청 수 제한</h4>
+<p><code>분당 600회</code>, <code>초당 10회</code> <strong>(종목, 캔들, 체결, 티커, 호가별)</strong></p>
+
+<p>[Quotation API 추가 안내 사항]</p>
+
+<ul>
+<li>Quotation API의 요청 수 제한은 IP 주소를 기준으로 합니다.</li>
+<li>향후 안정적인 서비스 제공을 위하여 API 요청 수는 추가적인 조정이 이루어질 수 있습니다. 요청 수 조정 필요 시 별도 공지를 통해 안내드리겠습니다. (<a href="https://upbit.com/service_center/notice">Upbit 공식 사이트 공지사항 바로가기</a>)</li>
+<li>초당 제한 조건과 분당 제한 조건 중 하나의 조건이라도 요청 수를 초과할 경우 요청 수 제한 적용 됩니다.</li>
+<li>요청 수 제한 조건에 적용되는 시간 조건은 첫 요청 시간을 기준으로하며, 일정 시간 이후 초기화됩니다. (실패한 요청은 요청 횟수에 포함되지 않습니다.)</li>
+<li>다수의 REST API 요청이 필요하신 경우, WebSocket을 통한 수신 부탁드립니다.</li>
+</ul>
+
+<p>[Exchange API 잔여 요청 수 확인 방법]</p>
+
+<p>업비트 Open API 서비스는 원활한 사용 환경을 위해 초당 / 분당 요청 수를 제한하고 있습니다.
+Open API 호출 시 남아있는 요청 수는 <code>Remaining-Req</code> 응답 해더를 통해 확인 가능합니다.</p>
+
+<p><code>Remaining-Req: group=default; min=1799; sec=29</code></p>
+
+<p>위와 같은 포멧의 응답 해더를 수신했다면, <code>default</code> 라는 그룹에 대하여 해당 초에 29개의 요청, 남은 1분간 1799개의 요청이 가능하다는 것을 의미합니다.</p>
+
+<p>주문하기 Open API의 경우,</p>
+
+<p><code>Remaining-Req: group=order; min=59; sec=4</code></p>
+
+<p>위와 같은 응답이 올 수 있으며, 이는 <code>order</code> 라는 그룹에 대해 해당 초에 4번, 남은 1분은 59번의 주문 요청이 가능하다는 것을 의미합니다.</p>
+
+<aside class="notice">
+  <b>NOTE</b>: 해당 시간 내 초과된 요청에 대해서 <code>429 Too Many   Requests</code> 오류가 발생할 수 있습니다. 하지만 별도의 추가적인   페널티는 부과되지 않습니다.
+</aside>
+<h3 id='remaining_request'>remaining_request (남은 요청 수 확인하기)</h3>
+<blockquote>
+<p>Example Code
+```python
+from upbit.client import Upbit
+from upbit.client import remaining_request</p>
+</blockquote>
+
+<p>access_key = &quot;Your Access Key&quot;
+secret_key = &quot;Your Secret Key&quot;</p>
+
+<p>client = Upbit(access_key, secret_key)
+result = client.APIKey.APIKey_info()
+remaining = remaining_request(result)
+print(remaining)
+```</p>
+
+<blockquote>
+<p>Result
+<code>json
+{
+    &quot;group&quot;: &quot;default&quot;,
+    &quot;min&quot;: &quot;899&quot;,
+    &quot;sec&quot;: &quot;29&quot;
+}
+</code></p>
+</blockquote>
+<h3 id='remaining_request-result'>remaining_request(result)</h3>
+<p>현재 남은 요청 횟수를 반환합니다.</p>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>result</td>
+<td>HttpFuture</td>
+</tr>
+</tbody></table>
+<h3 id='result'>result</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>group</td>
+<td>요청 그룹 (<code>default</code>: 기본 서비스, <code>order</code>: 주문)</td>
+</tr>
+<tr>
+<td>min</td>
+<td>남은 시간; 분(minutes)</td>
+</tr>
+<tr>
+<td>sec</td>
+<td>남은 시간; 초(seconds)</td>
 </tr>
 </tbody></table>
 <h1 id='account'>Account (계좌)</h1><h2 id='account_info'>Account_info (전체 계좌 조회)</h2>
