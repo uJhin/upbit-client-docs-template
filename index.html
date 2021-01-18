@@ -323,6 +323,9 @@
             <a href="#change-logs" class="toc-h1 toc-link" data-title="Change Logs">Change Logs</a>
               <ul class="toc-list-h2">
                   <li>
+                    <a href="#2021-01-18" class="toc-h2 toc-link" data-title="2021-01-18">2021-01-18</a>
+                  </li>
+                  <li>
                     <a href="#2021-01-15" class="toc-h2 toc-link" data-title="2021-01-15">2021-01-15</a>
                   </li>
                   <li>
@@ -500,6 +503,14 @@
               </ul>
           </li>
           <li>
+            <a href="#utils" class="toc-h1 toc-link" data-title="Utils (유틸리티 모듈)">Utils (유틸리티 모듈)</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#b277eb5acb" class="toc-h2 toc-link" data-title="원화 마켓 주문 가격 단위">원화 마켓 주문 가격 단위</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
             <a href="#errors" class="toc-h1 toc-link" data-title="Errors">Errors</a>
               <ul class="toc-list-h2">
                   <li>
@@ -592,7 +603,15 @@
 <li><strong>BTC</strong>: 3NVw2seiTQddGQwc1apqudKxuTqebpyL3s</li>
 <li><strong>ETH</strong>: 0x60dd373f59862d9df776596889b997e24bee42eb</li>
 </ul>
-<h1 id='change-logs'>Change Logs</h1><h3 id='2021-01-15'>2021-01-15</h3>
+<h1 id='change-logs'>Change Logs</h1><h3 id='2021-01-18'>2021-01-18</h3>
+<p>Upbit Client Released: v1.1.6.16</p>
+
+<ul>
+<li>유틸리티 모듈 <code>utils.py</code> 추가</li>
+<li>주문 가능한 가격 유닛을 검증하는 기능 추가</li>
+<li><code>validate_price</code> 함수 참고</li>
+</ul>
+<h3 id='2021-01-15'>2021-01-15</h3>
 <p>Upbit Client Released: v1.1.6.15</p>
 
 <ul>
@@ -4602,6 +4621,105 @@ Open API 호출 시 남아있는 요청 수는 <code>Remaining-Req</code> 응답
 <tr>
 <td>timestamp</td>
 <td>타임스탬프</td>
+</tr>
+</tbody></table>
+<h1 id='utils'>Utils (유틸리티 모듈)</h1><h2 id='b277eb5acb'>원화 마켓 주문 가격 단위</h2>
+<p>원화 마켓은 호가 별 주문 가격의 단위가 다릅니다. 아래 표를 참고하여 해당 단위로 주문하여 주세요.</p>
+
+<table><thead>
+<tr>
+<th>최소 호가 (이상)</th>
+<th>최대 호가 (미만)</th>
+<th>주문 가격 단위 (원)</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>2,000,000</td>
+<td></td>
+<td>1,000</td>
+</tr>
+<tr>
+<td>1,000,000</td>
+<td>2,000,000</td>
+<td>500</td>
+</tr>
+<tr>
+<td>500,000</td>
+<td>1,000,000</td>
+<td>100</td>
+</tr>
+<tr>
+<td>100,000</td>
+<td>500,000</td>
+<td>50</td>
+</tr>
+<tr>
+<td>10,000</td>
+<td>100,000</td>
+<td>10</td>
+</tr>
+<tr>
+<td>1,000</td>
+<td>10,000</td>
+<td>5</td>
+</tr>
+<tr>
+<td>100</td>
+<td>1,000</td>
+<td>1</td>
+</tr>
+<tr>
+<td>10</td>
+<td>100</td>
+<td>0.1</td>
+</tr>
+<tr>
+<td>0</td>
+<td>10</td>
+<td>0.01</td>
+</tr>
+</tbody></table>
+
+<p>예를 들어, 호가가 <code>20,000원</code> 일 경우 <code>19,950원</code>, <code>20,000원</code>, <code>20,050원</code> 으로 주문을 넣을 수 있으며,
+<code>20,007원</code>, <code>20,105원</code> 등의 가격으로는 주문이 불가능 합니다.</p>
+
+<blockquote>
+<p>Example Code</p>
+</blockquote>
+<div class="highlight"><pre class="highlight python tab-python"><code><span class="kn">from</span> <span class="nn">upbit.utils</span> <span class="kn">import</span> <span class="n">validate_price</span>
+
+<span class="n">price</span> <span class="o">=</span> <span class="mi">20007</span>
+<span class="n">valid</span> <span class="o">=</span> <span class="n">validate_price</span><span class="p">(</span><span class="n">price</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">valid</span><span class="p">)</span>
+</code></pre></div>
+<blockquote>
+<p>Result Example</p>
+</blockquote>
+<div class="highlight"><pre class="highlight console tab-console"><code><span class="go">20000.0
+</span></code></pre></div><h4 id='validate_price-price'>validate_price(price)</h4>
+<p>가격에 대한 값을 가격 단위에 맞춰 반환합니다.</p>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>price</td>
+<td>가격</td>
+</tr>
+</tbody></table>
+<h4 id='result'>result</h4>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>validated_price</td>
+<td>가격 단위에 맞춰진 가격</td>
 </tr>
 </tbody></table>
 <h1 id='errors'>Errors</h1>

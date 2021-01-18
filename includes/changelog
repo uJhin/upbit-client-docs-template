@@ -1,4 +1,12 @@
-<h1 id='change-logs'>Change Logs</h1><h3 id='2021-01-15'>2021-01-15</h3>
+<h1 id='change-logs'>Change Logs</h1><h3 id='2021-01-18'>2021-01-18</h3>
+<p>Upbit Client Released: v1.1.6.16</p>
+
+<ul>
+<li>유틸리티 모듈 <code>utils.py</code> 추가</li>
+<li>주문 가능한 가격 유닛을 검증하는 기능 추가</li>
+<li><code>validate_price</code> 함수 참고</li>
+</ul>
+<h3 id='2021-01-15'>2021-01-15</h3>
 <p>Upbit Client Released: v1.1.6.15</p>
 
 <ul>
