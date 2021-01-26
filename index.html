@@ -512,6 +512,9 @@
                     <a href="#upbitwebsocket" class="toc-h2 toc-link" data-title="UpbitWebSocket">UpbitWebSocket</a>
                   </li>
                   <li>
+                    <a href="#sock-connection" class="toc-h2 toc-link" data-title="sock.Connection">sock.Connection</a>
+                  </li>
+                  <li>
                     <a href="#upbitwebsocket-generate_payload-payload-generate" class="toc-h2 toc-link" data-title="UpbitWebSocket.generate_payload (Payload Generate)">UpbitWebSocket.generate_payload (Payload Generate)</a>
                   </li>
                   <li>
@@ -4640,6 +4643,76 @@ Open API 호출 시 남아있는 요청 수는 <code>Remaining-Req</code> 응답
 <div class="highlight"><pre class="highlight python tab-python"><code><span class="kn">from</span> <span class="nn">upbit.websocket</span> <span class="kn">import</span> <span class="n">UpbitWebSocket</span>
 
 <span class="n">sock</span> <span class="o">=</span> <span class="n">UpbitWebSocket</span><span class="p">()</span>
+</code></pre></div><h3 id='parameters'>Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>uri</td>
+<td>웹 소켓에 연결할 URI. (기본값: <code>wss://api.upbit.com/websocket/v1</code>)</td>
+</tr>
+<tr>
+<td>ping_interval</td>
+<td>ping 간격 제한 (기본값: <code>None</code>)</td>
+</tr>
+<tr>
+<td>ping_timeout</td>
+<td>ping 시간 초과 제한 (기본값: <code>None</code>)</td>
+</tr>
+</tbody></table>
+<h2 id='sock-connection'>sock.Connection</h2>
+<p>웹 소켓에 연결하기 위해 생성된 Connection 객체입니다.</p>
+
+<blockquote>
+<p>Example Code</p>
+</blockquote>
+<div class="highlight"><pre class="highlight python tab-python"><code><span class="kn">from</span> <span class="nn">upbit.websocket</span> <span class="kn">import</span> <span class="n">UpbitWebSocket</span>
+
+<span class="n">sock</span> <span class="o">=</span> <span class="n">UpbitWebSocket</span><span class="p">()</span>
+
+<span class="k">async</span> <span class="k">with</span> <span class="n">sock</span><span class="p">.</span><span class="n">Connection</span> <span class="k">as</span> <span class="n">conn</span><span class="p">:</span>
+    <span class="c1"># Do Something
+</span>    <span class="k">pass</span>
+</code></pre></div><h3 id='conn-send'>conn.send</h3>
+<p>웹 소켓에 데이터를 수신합니다.</p>
+
+<blockquote>
+<p>Example Code</p>
+</blockquote>
+<div class="highlight"><pre class="highlight python tab-python"><code><span class="kn">from</span> <span class="nn">upbit.websocket</span> <span class="kn">import</span> <span class="n">UpbitWebSocket</span>
+
+<span class="n">sock</span> <span class="o">=</span> <span class="n">UpbitWebSocket</span><span class="p">()</span>
+
+<span class="k">async</span> <span class="k">with</span> <span class="n">sock</span><span class="p">.</span><span class="n">Connection</span> <span class="k">as</span> <span class="n">conn</span><span class="p">:</span>
+    <span class="k">await</span> <span class="n">conn</span><span class="p">.</span><span class="n">send</span><span class="p">(</span><span class="s">'PING'</span><span class="p">)</span>
+</code></pre></div><h3 id='conn-recv'>conn.recv</h3>
+<p>서버로부터 전달받은 바이트 스트림(bytes stream) 데이터를 받습니다.</p>
+
+<blockquote>
+<p>Example Code</p>
+</blockquote>
+<div class="highlight"><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">re</span>
+<span class="kn">import</span> <span class="nn">json</span>
+<span class="kn">from</span> <span class="nn">upbit.websocket</span> <span class="kn">import</span> <span class="n">UpbitWebSocket</span>
+
+<span class="n">sock</span> <span class="o">=</span> <span class="n">UpbitWebSocket</span><span class="p">()</span>
+
+<span class="k">async</span> <span class="k">with</span> <span class="n">sock</span><span class="p">.</span><span class="n">Connection</span> <span class="k">as</span> <span class="n">conn</span><span class="p">:</span>
+    <span class="k">await</span> <span class="n">conn</span><span class="p">.</span><span class="n">send</span><span class="p">(</span><span class="s">'PING'</span><span class="p">)</span>
+    <span class="n">data</span> <span class="o">=</span> <span class="k">await</span> <span class="n">conn</span><span class="p">.</span><span class="n">recv</span><span class="p">()</span>
+
+    <span class="n">pattern</span> <span class="o">=</span> <span class="n">re</span><span class="p">.</span><span class="nb">compile</span><span class="p">(</span><span class="s">'{"\S+":"\S+"}'</span><span class="p">)</span>
+    <span class="n">search</span> <span class="o">=</span> <span class="n">pattern</span><span class="p">.</span><span class="n">search</span><span class="p">(</span><span class="n">data</span><span class="p">.</span><span class="n">decode</span><span class="p">(</span><span class="s">'utf8'</span><span class="p">))</span>
+    <span class="n">result</span> <span class="o">=</span> <span class="n">json</span><span class="p">.</span><span class="n">loads</span><span class="p">(</span><span class="n">search</span><span class="p">.</span><span class="n">group</span><span class="p">())</span>
+    <span class="k">print</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
+</code></pre></div>
+<blockquote>
+<p>Result</p>
+</blockquote>
+<div class="highlight"><pre class="highlight python tab-python"><code><span class="p">{</span><span class="s">'status'</span><span class="p">:</span> <span class="s">'UP'</span><span class="p">}</span>
 </code></pre></div><h2 id='upbitwebsocket-generate_payload-payload-generate'>UpbitWebSocket.generate_payload (Payload Generate)</h2>
 <p><strong>staticmethod</strong></p>
 
@@ -4657,8 +4730,19 @@ Open API 호출 시 남아있는 요청 수는 <code>Remaining-Req</code> 응답
 <blockquote>
 <p>Result</p>
 </blockquote>
-<div class="highlight"><pre class="highlight python tab-python"><code><span class="p">[{</span><span class="s">"ticket"</span><span class="p">:</span> <span class="s">"0e9a7960-4036-4cf3-abe6-c02712c3aad4"</span><span class="p">},</span> <span class="p">{</span><span class="s">"type"</span><span class="p">:</span> <span class="s">"trade"</span><span class="p">,</span> <span class="s">"codes"</span><span class="p">:</span> <span class="p">[</span><span class="s">"KRW-BTC"</span><span class="p">,</span> <span class="s">"KRW-ETH"</span><span class="p">]},</span> <span class="p">{</span><span class="s">"format"</span><span class="p">:</span> <span class="s">"DEFAULT"</span><span class="p">}]</span>
-</code></pre></div><h3 id='parameters'>Parameters</h3>
+<div class="highlight"><pre class="highlight python tab-python"><code><span class="p">[</span>
+    <span class="p">{</span>
+        <span class="s">"ticket"</span><span class="p">:</span> <span class="s">"0e9a7960-4036-4cf3-abe6-c02712c3aad4"</span>
+    <span class="p">},</span>
+    <span class="p">{</span>
+        <span class="s">"type"</span><span class="p">:</span> <span class="s">"trade"</span><span class="p">,</span>
+        <span class="s">"codes"</span><span class="p">:</span> <span class="p">[</span><span class="s">"KRW-BTC"</span><span class="p">,</span> <span class="s">"KRW-ETH"</span><span class="p">]</span>
+    <span class="p">},</span>
+    <span class="p">{</span>
+        <span class="s">"format"</span><span class="p">:</span> <span class="s">"DEFAULT"</span>
+    <span class="p">}</span>
+<span class="p">]</span>
+</code></pre></div><h3 id='parameters-2'>Parameters</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -4670,24 +4754,24 @@ Open API 호출 시 남아있는 요청 수는 <code>Remaining-Req</code> 응답
 <td>식별값 (기본값은 <code>uuid4</code> 형식으로 생성)</td>
 </tr>
 <tr>
-<td>type</td>
+<td>type *</td>
 <td>수신할 시세 타입 (현재가: <code>ticker</code>, 체결: <code>trade</code>, 호가: <code>orderbook</code>)</td>
 </tr>
 <tr>
-<td>codes</td>
-<td>수신할 시세 종목 정보</td>
+<td>codes *</td>
+<td>수신할 시세 종목 정보 (ex. <code>[&#39;KRW-BTC&#39;, &#39;KRW-ETH&#39;]</code>)</td>
 </tr>
 <tr>
 <td>isOnlySnapshot</td>
-<td>시세 스냅샷만 제공 여부</td>
+<td>시세 스냅샷만 제공 여부 (<code>True</code>, <code>False</code>)</td>
 </tr>
 <tr>
 <td>isOnlyRealtime</td>
-<td>실시간 시세만 제공 여부</td>
+<td>실시간 시세만 제공 여부 (<code>True</code>, <code>False</code>)</td>
 </tr>
 <tr>
 <td>format</td>
-<td>포맷 (<code>SIMPLE</code>: 간소화된 필드명, <code>DEFAULT</code> (생략 가능))</td>
+<td>포맷, <code>SIMPLE</code>: 간소화된 필드명, <code>DEFAULT</code>: 기본 포맷 (생략 가능)</td>
 </tr>
 </tbody></table>
 <h2 id='upbitwebsocket-generate_orderbook_codes-orderbook-codes-generate'>UpbitWebSocket.generate_orderbook_codes (Orderbook Codes Generate)</h2>
@@ -4702,14 +4786,15 @@ Open API 호출 시 남아있는 요청 수는 <code>Remaining-Req</code> 응답
 
 <span class="n">currencies</span> <span class="o">=</span> <span class="p">[</span><span class="s">"KRW-BTC"</span><span class="p">,</span> <span class="s">"KRW-ETH"</span><span class="p">]</span>
 <span class="n">counts</span> <span class="o">=</span> <span class="p">[</span><span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">]</span>
-<span class="n">codes</span> <span class="o">=</span> <span class="n">UpbitWebSocket</span><span class="p">.</span><span class="n">generate_orderbook_codes</span><span class="p">(</span><span class="n">currencies</span><span class="p">,</span> <span class="n">counts</span><span class="p">)</span>
+<span class="n">codes</span> <span class="o">=</span> <span class="n">UpbitWebSocket</span><span class="p">.</span><span class="n">generate_orderbook_codes</span><span class="p">(</span>
+    <span class="n">currencies</span><span class="p">,</span> <span class="n">counts</span><span class="p">)</span>
 <span class="k">print</span><span class="p">(</span><span class="n">codes</span><span class="p">)</span>
 </code></pre></div>
 <blockquote>
 <p>Result</p>
 </blockquote>
 <div class="highlight"><pre class="highlight python tab-python"><code><span class="p">[</span><span class="s">"KRW-BTC.5"</span><span class="p">,</span> <span class="s">"KRW-ETH.5"</span><span class="p">]</span>
-</code></pre></div><h3 id='parameters-2'>Parameters</h3>
+</code></pre></div><h3 id='parameters-3'>Parameters</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -4742,14 +4827,15 @@ Open API 호출 시 남아있는 요청 수는 <code>Remaining-Req</code> 응답
     <span class="k">async</span> <span class="k">with</span> <span class="n">sock</span><span class="p">.</span><span class="n">Connection</span> <span class="k">as</span> <span class="n">conn</span><span class="p">:</span>
         <span class="k">await</span> <span class="n">conn</span><span class="p">.</span><span class="n">send</span><span class="p">(</span><span class="n">payload</span><span class="p">)</span>
         <span class="n">data</span> <span class="o">=</span> <span class="k">await</span> <span class="n">conn</span><span class="p">.</span><span class="n">recv</span><span class="p">()</span>
-        <span class="n">result</span> <span class="o">=</span> <span class="n">json</span><span class="p">.</span><span class="n">loads</span><span class="p">(</span><span class="n">data</span><span class="p">.</span><span class="n">decode</span><span class="p">(</span><span class="s">'utf8'</span><span class="p">)</span>
+        <span class="n">result</span> <span class="o">=</span> <span class="n">json</span><span class="p">.</span><span class="n">loads</span><span class="p">(</span><span class="n">data</span><span class="p">.</span><span class="n">decode</span><span class="p">(</span><span class="s">'utf8'</span><span class="p">))</span>
         <span class="k">print</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
 
 
 <span class="n">sock</span> <span class="o">=</span> <span class="n">UpbitWebSocket</span><span class="p">()</span>
 
 <span class="n">currencies</span> <span class="o">=</span> <span class="p">[</span><span class="s">"KRW-BTC"</span><span class="p">,</span> <span class="s">"KRW-ETH"</span><span class="p">]</span>
-<span class="n">payload</span> <span class="o">=</span> <span class="n">sock</span><span class="p">.</span><span class="n">generate_payload</span><span class="p">(</span><span class="nb">type</span><span class="o">=</span><span class="s">"trade"</span><span class="p">,</span> <span class="n">codes</span><span class="o">=</span><span class="n">currencies</span><span class="p">)</span>
+<span class="n">payload</span> <span class="o">=</span> <span class="n">sock</span><span class="p">.</span><span class="n">generate_payload</span><span class="p">(</span>
+    <span class="nb">type</span><span class="o">=</span><span class="s">"trade"</span><span class="p">,</span> <span class="n">codes</span><span class="o">=</span><span class="n">currencies</span><span class="p">)</span>
 
 <span class="n">event_loop</span> <span class="o">=</span> <span class="n">asyncio</span><span class="p">.</span><span class="n">get_event_loop</span><span class="p">()</span>
 <span class="n">event_loop</span><span class="p">.</span><span class="n">run_until_complete</span><span class="p">(</span><span class="n">trade</span><span class="p">(</span><span class="n">sock</span><span class="p">,</span> <span class="n">payload</span><span class="p">))</span>
@@ -4773,7 +4859,7 @@ Open API 호출 시 남아있는 요청 수는 <code>Remaining-Req</code> 응답
     </span><span class="nl">"sequential_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1611656099000000</span><span class="p">,</span><span class="w">
     </span><span class="nl">"stream_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"SNAPSHOT"</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre></div><h3 id='parameters-3'>Parameters</h3>
+</span></code></pre></div><h3 id='parameters-4'>Parameters</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
