@@ -72,6 +72,8 @@
 <p>예를 들어, 호가가 <code>20,000원</code> 일 경우 <code>19,950원</code>, <code>20,000원</code>, <code>20,050원</code> 으로 주문을 넣을 수 있으며,
 <code>20,007원</code>, <code>20,105원</code> 등의 가격으로는 주문이 불가능 합니다.</p>
 <h3 id='validate_price-price-2'>validate_price(price)</h3>
+<p><strong>staticmethod</strong></p>
+
 <p>가격에 대한 값을 가격 단위에 맞춰 반환합니다.</p>
 
 <table><thead>
