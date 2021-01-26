@@ -163,14 +163,14 @@
 <td>cd</td>
 <td>마켓 코드 (ex. KRW-BTC)</td>
 <td>String</td>
-<td></td>
+<td>-</td>
 </tr>
 <tr>
 <td>opening_price</td>
 <td>op</td>
-<td></td>
 <td>시가</td>
 <td>Double</td>
+<td>-</td>
 </tr>
 <tr>
 <td>high_price</td>
@@ -189,9 +189,9 @@
 <tr>
 <td>trade_price</td>
 <td>tp</td>
-<td></td>
 <td>현재가</td>
 <td>Double</td>
+<td>-</td>
 </tr>
 <tr>
 <td>prev_closing_price</td>
@@ -275,14 +275,14 @@
 <td>tdt</td>
 <td>최근 거래 일자(UTC)</td>
 <td>String</td>
-<td>yyyyMMdd</td>
+<td><code>yyyyMMdd</code></td>
 </tr>
 <tr>
 <td>trade_time</td>
 <td>ttm</td>
 <td>최근 거래 시각(UTC)</td>
 <td>String</td>
-<td></td>
+<td><code>HHmmss</code></td>
 </tr>
 <tr>
 <td>trade_timestamp</td>
@@ -321,10 +321,10 @@
 </tr>
 <tr>
 <td>highest_52_week_date</td>
-<td></td>
 <td>h52wdt</td>
 <td>52주 최고가 달성일</td>
 <td>String</td>
+<td><code>yyyy-MM-dd</code></td>
 </tr>
 <tr>
 <td>lowest_52_week_price</td>
@@ -344,8 +344,8 @@
 <td>trade_status</td>
 <td>ts</td>
 <td>거래상태 *deprecated</td>
-<td></td>
 <td>String</td>
+<td>-</td>
 </tr>
 <tr>
 <td>market_state</td>
