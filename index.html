@@ -515,6 +515,12 @@
                     <a href="#sock-connection" class="toc-h2 toc-link" data-title="sock.Connection">sock.Connection</a>
                   </li>
                   <li>
+                    <a href="#conn-send" class="toc-h2 toc-link" data-title="conn.send">conn.send</a>
+                  </li>
+                  <li>
+                    <a href="#conn-recv" class="toc-h2 toc-link" data-title="conn.recv">conn.recv</a>
+                  </li>
+                  <li>
                     <a href="#upbitwebsocket-generate_payload-payload-generate" class="toc-h2 toc-link" data-title="UpbitWebSocket.generate_payload (Payload Generate)">UpbitWebSocket.generate_payload (Payload Generate)</a>
                   </li>
                   <li>
@@ -4664,7 +4670,8 @@ Open API 호출 시 남아있는 요청 수는 <code>Remaining-Req</code> 응답
 </tr>
 </tbody></table>
 <h2 id='sock-connection'>sock.Connection</h2>
-<p>웹 소켓에 연결하기 위해 생성된 Connection 객체입니다.</p>
+<p><strong>Property</strong>
+웹 소켓에 연결하기 위해 생성된 Connection 객체입니다.</p>
 
 <blockquote>
 <p>Example Code</p>
@@ -4676,7 +4683,7 @@ Open API 호출 시 남아있는 요청 수는 <code>Remaining-Req</code> 응답
 <span class="k">async</span> <span class="k">with</span> <span class="n">sock</span><span class="p">.</span><span class="n">Connection</span> <span class="k">as</span> <span class="n">conn</span><span class="p">:</span>
     <span class="c1"># Do Something
 </span>    <span class="k">pass</span>
-</code></pre></div><h3 id='conn-send'>conn.send</h3>
+</code></pre></div><h2 id='conn-send'>conn.send</h2>
 <p>웹 소켓에 데이터를 수신합니다.</p>
 
 <blockquote>
@@ -4688,7 +4695,19 @@ Open API 호출 시 남아있는 요청 수는 <code>Remaining-Req</code> 응답
 
 <span class="k">async</span> <span class="k">with</span> <span class="n">sock</span><span class="p">.</span><span class="n">Connection</span> <span class="k">as</span> <span class="n">conn</span><span class="p">:</span>
     <span class="k">await</span> <span class="n">conn</span><span class="p">.</span><span class="n">send</span><span class="p">(</span><span class="s">'PING'</span><span class="p">)</span>
-</code></pre></div><h3 id='conn-recv'>conn.recv</h3>
+</code></pre></div><h3 id='parameters-2'>Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>message</td>
+<td>서버에 수신할 데이터</td>
+</tr>
+</tbody></table>
+<h2 id='conn-recv'>conn.recv</h2>
 <p>서버로부터 전달받은 바이트 스트림(bytes stream) 데이터를 받습니다.</p>
 
 <blockquote>
@@ -4713,7 +4732,9 @@ Open API 호출 시 남아있는 요청 수는 <code>Remaining-Req</code> 응답
 <p>Result</p>
 </blockquote>
 <div class="highlight"><pre class="highlight python tab-python"><code><span class="p">{</span><span class="s">'status'</span><span class="p">:</span> <span class="s">'UP'</span><span class="p">}</span>
-</code></pre></div><h2 id='upbitwebsocket-generate_payload-payload-generate'>UpbitWebSocket.generate_payload (Payload Generate)</h2>
+</code></pre></div><h3 id='parameters-3'>Parameters</h3>
+<p>No Parameters</p>
+<h2 id='upbitwebsocket-generate_payload-payload-generate'>UpbitWebSocket.generate_payload (Payload Generate)</h2>
 <p><strong>staticmethod</strong></p>
 
 <p>웹 소켓 수신에 필요한 payload 데이터를 json 형식에 맞춰진 문자열로 generate 합니다.</p>
@@ -4742,7 +4763,7 @@ Open API 호출 시 남아있는 요청 수는 <code>Remaining-Req</code> 응답
         <span class="s">"format"</span><span class="p">:</span> <span class="s">"DEFAULT"</span>
     <span class="p">}</span>
 <span class="p">]</span>
-</code></pre></div><h3 id='parameters-2'>Parameters</h3>
+</code></pre></div><h3 id='parameters-4'>Parameters</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -4794,7 +4815,7 @@ Open API 호출 시 남아있는 요청 수는 <code>Remaining-Req</code> 응답
 <p>Result</p>
 </blockquote>
 <div class="highlight"><pre class="highlight python tab-python"><code><span class="p">[</span><span class="s">"KRW-BTC.5"</span><span class="p">,</span> <span class="s">"KRW-ETH.5"</span><span class="p">]</span>
-</code></pre></div><h3 id='parameters-3'>Parameters</h3>
+</code></pre></div><h3 id='parameters-5'>Parameters</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -4859,7 +4880,7 @@ Open API 호출 시 남아있는 요청 수는 <code>Remaining-Req</code> 응답
     </span><span class="nl">"sequential_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1611656099000000</span><span class="p">,</span><span class="w">
     </span><span class="nl">"stream_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"SNAPSHOT"</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre></div><h3 id='parameters-4'>Parameters</h3>
+</span></code></pre></div><h3 id='parameters-6'>Parameters</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
