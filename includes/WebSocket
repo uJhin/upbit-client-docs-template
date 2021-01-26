@@ -28,8 +28,9 @@
 </tr>
 </tbody></table>
 <h2 id='sock-connection'>sock.Connection</h2>
-<p><strong>Property</strong>
-웹 소켓에 연결하기 위해 생성된 Connection 객체입니다.</p>
+<p><strong>Property</strong></p>
+
+<p>웹 소켓에 연결하기 위해 생성된 Connection 객체입니다.</p>
 
 <blockquote>
 <p>Example Code</p>
