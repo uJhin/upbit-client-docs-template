@@ -515,7 +515,7 @@
                     <a href="#upbitwebsocket-generate_orderbook_codes-orderbook-codes-generate" class="toc-h2 toc-link" data-title="UpbitWebSocket.generate_orderbook_codes (Orderbook Codes Generate)">UpbitWebSocket.generate_orderbook_codes (Orderbook Codes Generate)</a>
                   </li>
                   <li>
-                    <a href="#request" class="toc-h2 toc-link" data-title="request (시세 정보 요청하기)">request (시세 정보 요청하기)</a>
+                    <a href="#request" class="toc-h2 toc-link" data-title="Request (시세 정보 요청하기)">Request (시세 정보 요청하기)</a>
                   </li>
               </ul>
           </li>
@@ -621,7 +621,7 @@
 <li><strong>ETH</strong>: 0x60dd373f59862d9df776596889b997e24bee42eb</li>
 </ul>
 <h1 id='change-logs'>Change Logs</h1><h3 id='2021-01-26'>2021-01-26</h3>
-<p>Update Client Released: v1.1.6.22</p>
+<p>Update Client Released: v1.1.6.23</p>
 
 <ul>
 <li>모든 <code>response</code>에 요청 제한 수가 출력되도록 수정</li>
@@ -4715,7 +4715,7 @@ Open API 호출 시 남아있는 요청 수는 <code>Remaining-Req</code> 응답
 <td>수신할 각 시세 종목에 대한 개수</td>
 </tr>
 </tbody></table>
-<h2 id='request'>request (시세 정보 요청하기)</h2>
+<h2 id='request'>Request (시세 정보 요청하기)</h2>
 <p>웹 소켓을 통해 시세 정보를 요청합니다.</p>
 
 <blockquote>
@@ -4728,7 +4728,10 @@ Open API 호출 시 남아있는 요청 수는 <code>Remaining-Req</code> 응답
 <span class="n">currencies</span> <span class="o">=</span> <span class="p">[</span><span class="s">"KRW-BTC"</span><span class="p">,</span> <span class="s">"KRW-ETH"</span><span class="p">]</span>
 <span class="n">payload</span> <span class="o">=</span> <span class="n">sock</span><span class="p">.</span><span class="n">generate_payload</span><span class="p">(</span><span class="nb">type</span><span class="o">=</span><span class="s">"trade"</span><span class="p">,</span> <span class="n">codes</span><span class="o">=</span><span class="n">currencies</span><span class="p">)</span>
 
-<span class="n">result</span> <span class="o">=</span> <span class="k">await</span> <span class="n">sock</span><span class="p">.</span><span class="n">request</span><span class="p">(</span><span class="n">payload</span><span class="p">)</span>
+<span class="k">async</span> <span class="k">with</span> <span class="n">sock</span><span class="p">.</span><span class="n">Connection</span> <span class="k">as</span> <span class="n">conn</span><span class="p">:</span>
+    <span class="k">await</span> <span class="n">conn</span><span class="p">.</span><span class="n">send</span><span class="p">(</span><span class="n">payload</span><span class="p">)</span>
+    <span class="n">data</span> <span class="o">=</span> <span class="k">await</span> <span class="n">conn</span><span class="p">.</span><span class="n">recv</span><span class="p">()</span>
+    <span class="n">result</span> <span class="o">=</span> <span class="n">json</span><span class="p">.</span><span class="n">loads</span><span class="p">(</span><span class="n">data</span><span class="p">.</span><span class="n">decode</span><span class="p">(</span><span class="s">'utf8'</span><span class="p">))</span>
 <span class="k">print</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
 </code></pre></div>
 <blockquote>
