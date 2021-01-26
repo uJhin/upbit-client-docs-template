@@ -1,5 +1,5 @@
 <h1 id='change-logs'>Change Logs</h1><h3 id='2021-01-26'>2021-01-26</h3>
-<p>Update Client Released: v1.1.6.20</p>
+<p>Update Client Released: v1.1.6.21</p>
 
 <ul>
 <li>모든 <code>response</code>에 요청 제한 수가 출력되도록 수정</li>
