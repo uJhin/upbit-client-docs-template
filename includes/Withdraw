@@ -10,7 +10,7 @@
 <span class="n">secret_key</span> <span class="o">=</span> <span class="s">"Your Secret Key"</span>
 
 <span class="n">client</span> <span class="o">=</span> <span class="n">Upbit</span><span class="p">(</span><span class="n">access_key</span><span class="p">,</span> <span class="n">secret_key</span><span class="p">)</span>
-<span class="n">result</span> <span class="o">=</span> <span class="n">client</span><span class="p">.</span><span class="n">Withdraw</span><span class="p">.</span><span class="n">Withdraw_info_all</span><span class="p">().</span><span class="n">result</span><span class="p">()</span>
+<span class="n">result</span> <span class="o">=</span> <span class="n">client</span><span class="p">.</span><span class="n">Withdraw</span><span class="p">.</span><span class="n">Withdraw_info_all</span><span class="p">()[</span><span class="s">'result'</span><span class="p">]</span>
 <span class="k">print</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
 </code></pre></div>
 <blockquote>
@@ -225,7 +225,7 @@
 <span class="n">client</span> <span class="o">=</span> <span class="n">Upbit</span><span class="p">(</span><span class="n">access_key</span><span class="p">,</span> <span class="n">secret_key</span><span class="p">)</span>
 <span class="n">result</span> <span class="o">=</span> <span class="n">client</span><span class="p">.</span><span class="n">Withdraw</span><span class="p">.</span><span class="n">Withdraw_info</span><span class="p">(</span>
     <span class="n">uuid</span><span class="o">=</span><span class="s">'35a4f1dc-1db5-4d6b-89b5-7ec137875956'</span>
-<span class="p">).</span><span class="n">result</span><span class="p">()</span>
+<span class="p">)[</span><span class="s">'result'</span><span class="p">]</span>
 <span class="k">print</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
 </code></pre></div>
 <blockquote>
@@ -395,7 +395,7 @@
 <span class="n">client</span> <span class="o">=</span> <span class="n">Upbit</span><span class="p">(</span><span class="n">access_key</span><span class="p">,</span> <span class="n">secret_key</span><span class="p">)</span>
 <span class="n">result</span> <span class="o">=</span> <span class="n">client</span><span class="p">.</span><span class="n">Withdraw</span><span class="p">.</span><span class="n">Withdraw_chance</span><span class="p">(</span>
     <span class="n">currency</span><span class="o">=</span><span class="s">'BTC'</span>
-<span class="p">).</span><span class="n">result</span><span class="p">()</span>
+<span class="p">)[</span><span class="s">'result'</span><span class="p">]</span>
 <span class="k">print</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
 </code></pre></div>
 <blockquote>
@@ -607,7 +607,7 @@
     <span class="n">currency</span><span class="o">=</span><span class="s">'BTC'</span><span class="p">,</span>
     <span class="n">amount</span><span class="o">=</span><span class="s">'0.01'</span><span class="p">,</span>
     <span class="n">address</span><span class="o">=</span><span class="s">'3NVw2seiTQddGQwc1apqudKxuTqebpyL3s'</span>
-<span class="p">).</span><span class="n">result</span><span class="p">()</span>
+<span class="p">)[</span><span class="s">'result'</span><span class="p">]</span>
 <span class="k">print</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
 </code></pre></div>
 <blockquote>
@@ -802,7 +802,7 @@
 <span class="n">client</span> <span class="o">=</span> <span class="n">Upbit</span><span class="p">(</span><span class="n">access_key</span><span class="p">,</span> <span class="n">secret_key</span><span class="p">)</span>
 <span class="n">result</span> <span class="o">=</span> <span class="n">client</span><span class="p">.</span><span class="n">Withdraw</span><span class="p">.</span><span class="n">Withdraw_krw</span><span class="p">(</span>
     <span class="n">amount</span><span class="o">=</span><span class="s">'10000'</span>
-<span class="p">).</span><span class="n">result</span><span class="p">()</span>
+<span class="p">)[</span><span class="s">'result'</span><span class="p">]</span>
 <span class="k">print</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
 </code></pre></div>
 <blockquote>

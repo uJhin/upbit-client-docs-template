@@ -10,7 +10,7 @@
 <span class="n">secret_key</span> <span class="o">=</span> <span class="s">"Your Secret Key"</span>
 
 <span class="n">client</span> <span class="o">=</span> <span class="n">Upbit</span><span class="p">(</span><span class="n">access_key</span><span class="p">,</span> <span class="n">secret_key</span><span class="p">)</span>
-<span class="n">result</span> <span class="o">=</span> <span class="n">client</span><span class="p">.</span><span class="n">Deposit</span><span class="p">.</span><span class="n">Deposit_info_all</span><span class="p">().</span><span class="n">result</span><span class="p">()</span>
+<span class="n">result</span> <span class="o">=</span> <span class="n">client</span><span class="p">.</span><span class="n">Deposit</span><span class="p">.</span><span class="n">Deposit_info_all</span><span class="p">()[</span><span class="s">'result'</span><span class="p">]</span>
 <span class="k">print</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
 </code></pre></div>
 <blockquote>
@@ -235,7 +235,7 @@
 <span class="n">client</span> <span class="o">=</span> <span class="n">Upbit</span><span class="p">(</span><span class="n">access_key</span><span class="p">,</span> <span class="n">secret_key</span><span class="p">)</span>
 <span class="n">result</span> <span class="o">=</span> <span class="n">client</span><span class="p">.</span><span class="n">Deposit</span><span class="p">.</span><span class="n">Deposit_info</span><span class="p">(</span>
     <span class="n">uuid</span><span class="o">=</span><span class="s">'20c84493-6e70-4e54-83ce-90915a19d110'</span>
-<span class="p">).</span><span class="n">result</span><span class="p">()</span>
+<span class="p">)[</span><span class="s">'result'</span><span class="p">]</span>
 <span class="k">print</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
 </code></pre></div>
 <blockquote>
@@ -403,7 +403,7 @@
 <span class="n">secret_key</span> <span class="o">=</span> <span class="s">"Your Secret Key"</span>
 
 <span class="n">client</span> <span class="o">=</span> <span class="n">Upbit</span><span class="p">(</span><span class="n">access_key</span><span class="p">,</span> <span class="n">secret_key</span><span class="p">)</span>
-<span class="n">result</span> <span class="o">=</span> <span class="n">client</span><span class="p">.</span><span class="n">Deposit</span><span class="p">.</span><span class="n">Deposit_coin_addresses</span><span class="p">().</span><span class="n">result</span><span class="p">()</span>
+<span class="n">result</span> <span class="o">=</span> <span class="n">client</span><span class="p">.</span><span class="n">Deposit</span><span class="p">.</span><span class="n">Deposit_coin_addresses</span><span class="p">()[</span><span class="s">'result'</span><span class="p">]</span>
 <span class="k">print</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
 </code></pre></div>
 <blockquote>
@@ -479,7 +479,7 @@
 <span class="n">client</span> <span class="o">=</span> <span class="n">Upbit</span><span class="p">(</span><span class="n">access_key</span><span class="p">,</span> <span class="n">secret_key</span><span class="p">)</span>
 <span class="n">result</span> <span class="o">=</span> <span class="n">client</span><span class="p">.</span><span class="n">Deposit</span><span class="p">.</span><span class="n">Deposit_coin_address</span><span class="p">(</span>
     <span class="n">currency</span><span class="o">=</span><span class="s">'BTC'</span>
-<span class="p">).</span><span class="n">result</span><span class="p">()</span>
+<span class="p">)[</span><span class="s">'result'</span><span class="p">]</span>
 <span class="k">print</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
 </code></pre></div>
 <blockquote>
@@ -547,7 +547,7 @@
 <span class="n">client</span> <span class="o">=</span> <span class="n">Upbit</span><span class="p">(</span><span class="n">access_key</span><span class="p">,</span> <span class="n">secret_key</span><span class="p">)</span>
 <span class="n">result</span> <span class="o">=</span> <span class="n">client</span><span class="p">.</span><span class="n">Deposit</span><span class="p">.</span><span class="n">Deposit_generate_coin_address</span><span class="p">(</span>
     <span class="n">currency</span><span class="o">=</span><span class="s">'SNT'</span>
-<span class="p">).</span><span class="n">result</span><span class="p">()</span>
+<span class="p">)[</span><span class="s">'result'</span><span class="p">]</span>
 <span class="k">print</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
 </code></pre></div>
 <blockquote>

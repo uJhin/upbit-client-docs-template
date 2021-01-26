@@ -9,7 +9,7 @@
 <span class="n">client</span> <span class="o">=</span> <span class="n">Upbit</span><span class="p">()</span>
 <span class="n">result</span> <span class="o">=</span> <span class="n">client</span><span class="p">.</span><span class="n">Order</span><span class="p">.</span><span class="n">Order_orderbook</span><span class="p">(</span>
     <span class="n">markets</span><span class="o">=</span><span class="p">[</span><span class="s">'KRW-BTC'</span><span class="p">,</span> <span class="s">'KRW-ETH'</span><span class="p">]</span>
-<span class="p">).</span><span class="n">result</span><span class="p">()</span>
+<span class="p">)[</span><span class="s">'result'</span><span class="p">]</span>
 <span class="k">print</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
 </code></pre></div>
 <blockquote>
@@ -157,7 +157,7 @@
 <span class="n">client</span> <span class="o">=</span> <span class="n">Upbit</span><span class="p">(</span><span class="n">access_key</span><span class="p">,</span> <span class="n">secret_key</span><span class="p">)</span>
 <span class="n">result</span> <span class="o">=</span> <span class="n">client</span><span class="p">.</span><span class="n">Order</span><span class="p">.</span><span class="n">Order_chance</span><span class="p">(</span>
     <span class="n">market</span><span class="o">=</span><span class="s">'KRW-BTC'</span>
-<span class="p">).</span><span class="n">result</span><span class="p">()</span>
+<span class="p">)[</span><span class="s">'result'</span><span class="p">]</span>
 <span class="k">print</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
 </code></pre></div>
 <blockquote>
@@ -382,7 +382,7 @@
 <span class="n">client</span> <span class="o">=</span> <span class="n">Upbit</span><span class="p">(</span><span class="n">access_key</span><span class="p">,</span> <span class="n">secret_key</span><span class="p">)</span>
 <span class="n">result</span> <span class="o">=</span> <span class="n">client</span><span class="p">.</span><span class="n">Order</span><span class="p">.</span><span class="n">Order_info</span><span class="p">(</span>
     <span class="n">uuid</span><span class="o">=</span><span class="s">'9ca023a5-851b-4fec-9f0a-48cd83c2eaae'</span>
-<span class="p">).</span><span class="n">result</span><span class="p">()</span>
+<span class="p">)[</span><span class="s">'result'</span><span class="p">]</span>
 <span class="k">print</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
 </code></pre></div>
 <blockquote>
@@ -551,7 +551,7 @@
 <span class="n">secret_key</span> <span class="o">=</span> <span class="s">"Your Secret Key"</span>
 
 <span class="n">client</span> <span class="o">=</span> <span class="n">Upbit</span><span class="p">(</span><span class="n">access_key</span><span class="p">,</span> <span class="n">secret_key</span><span class="p">)</span>
-<span class="n">result</span> <span class="o">=</span> <span class="n">client</span><span class="p">.</span><span class="n">Order</span><span class="p">.</span><span class="n">Order_info_all</span><span class="p">().</span><span class="n">result</span><span class="p">()</span>
+<span class="n">result</span> <span class="o">=</span> <span class="n">client</span><span class="p">.</span><span class="n">Order</span><span class="p">.</span><span class="n">Order_info_all</span><span class="p">()[</span><span class="s">'result'</span><span class="p">]</span>
 <span class="k">print</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
 </code></pre></div>
 <blockquote>
@@ -751,7 +751,7 @@
     <span class="n">volume</span><span class="o">=</span><span class="s">'0.01'</span><span class="p">,</span>
     <span class="n">price</span><span class="o">=</span><span class="s">'100.0'</span><span class="p">,</span>
     <span class="n">ord_type</span><span class="o">=</span><span class="s">'limit'</span>
-<span class="p">).</span><span class="n">result</span><span class="p">()</span>
+<span class="p">)[</span><span class="s">'result'</span><span class="p">]</span>
 <span class="k">print</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
 </code></pre></div>
 <blockquote>
@@ -969,7 +969,7 @@
 <span class="n">client</span> <span class="o">=</span> <span class="n">Upbit</span><span class="p">(</span><span class="n">access_key</span><span class="p">,</span> <span class="n">secret_key</span><span class="p">)</span>
 <span class="n">result</span> <span class="o">=</span> <span class="n">client</span><span class="p">.</span><span class="n">Order</span><span class="p">.</span><span class="n">Order_cancel</span><span class="p">(</span>
     <span class="n">uuid</span><span class="o">=</span><span class="s">'cdd92199-2897-4e14-9448-f923320408ad'</span>
-<span class="p">).</span><span class="n">result</span><span class="p">()</span>
+<span class="p">)[</span><span class="s">'result'</span><span class="p">]</span>
 <span class="k">print</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
 </code></pre></div>
 <blockquote>

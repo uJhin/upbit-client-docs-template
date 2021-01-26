@@ -42,60 +42,30 @@ Open API 호출 시 남아있는 요청 수는 <code>Remaining-Req</code> 응답
 <aside class="notice">
   <b>NOTE</b>: 해당 시간 내 초과된 요청에 대해서 <code>429 Too Many   Requests</code> 오류가 발생할 수 있습니다. 하지만 별도의 추가적인   페널티는 부과되지 않습니다.
 </aside>
-<h3 id='remaining_request'>remaining_request (남은 요청 수 확인하기)</h3>
+<h3 id='e193e9d311'>남은 요청 수 확인하기</h3>
+<p>모든 결과는 <code>json</code> 형식으로 반환되며, <code>remaining_request</code> 키값을 가집니다.</p>
+
 <blockquote>
 <p>Example Code</p>
 </blockquote>
 <div class="highlight"><pre class="highlight python tab-python"><code><span class="kn">from</span> <span class="nn">upbit.client</span> <span class="kn">import</span> <span class="n">Upbit</span>
-<span class="kn">from</span> <span class="nn">upbit.client</span> <span class="kn">import</span> <span class="n">remaining_request</span>
 
 <span class="n">access_key</span> <span class="o">=</span> <span class="s">"Your Access Key"</span>
 <span class="n">secret_key</span> <span class="o">=</span> <span class="s">"Your Secret Key"</span>
 
 <span class="n">client</span> <span class="o">=</span> <span class="n">Upbit</span><span class="p">(</span><span class="n">access_key</span><span class="p">,</span> <span class="n">secret_key</span><span class="p">)</span>
 <span class="n">result</span> <span class="o">=</span> <span class="n">client</span><span class="p">.</span><span class="n">APIKey</span><span class="p">.</span><span class="n">APIKey_info</span><span class="p">()</span>
-<span class="n">remaining</span> <span class="o">=</span> <span class="n">remaining_request</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
-<span class="k">print</span><span class="p">(</span><span class="n">remaining</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
 </code></pre></div>
 <blockquote>
 <p>Result Example</p>
 </blockquote>
 <div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"remaining_request"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
     </span><span class="nl">"group"</span><span class="p">:</span><span class="w"> </span><span class="s2">"default"</span><span class="p">,</span><span class="w">
     </span><span class="nl">"min"</span><span class="p">:</span><span class="w"> </span><span class="s2">"899"</span><span class="p">,</span><span class="w">
     </span><span class="nl">"sec"</span><span class="p">:</span><span class="w"> </span><span class="s2">"29"</span><span class="w">
+</span><span class="p">},</span><span class="w">
+  </span><span class="nl">"result"</span><span class="p">:</span><span class="w"> </span><span class="err">...</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre></div><h3 id='remaining_request-result'>remaining_request(result)</h3>
-<p>현재 남은 요청 횟수를 반환합니다.</p>
-
-<table><thead>
-<tr>
-<th>Parameter</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>result</td>
-<td>HttpFuture</td>
-</tr>
-</tbody></table>
-<h3 id='result'>result</h3>
-<table><thead>
-<tr>
-<th>Parameter</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>group</td>
-<td>요청 그룹 (<code>default</code>: 기본 서비스, <code>order</code>: 주문)</td>
-</tr>
-<tr>
-<td>min</td>
-<td>남은 시간; 분(minutes)</td>
-</tr>
-<tr>
-<td>sec</td>
-<td>남은 시간; 초(seconds)</td>
-</tr>
-</tbody></table>
+</span></code></pre></div>

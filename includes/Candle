@@ -10,7 +10,7 @@
 <span class="n">result</span> <span class="o">=</span> <span class="n">client</span><span class="p">.</span><span class="n">Candle</span><span class="p">.</span><span class="n">Candle_minutes</span><span class="p">(</span>
     <span class="n">unit</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
     <span class="n">market</span><span class="o">=</span><span class="s">'KRW-BTC'</span>
-<span class="p">).</span><span class="n">result</span><span class="p">()</span>
+<span class="p">)[</span><span class="s">'result'</span><span class="p">]</span>
 <span class="k">print</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
 </code></pre></div>
 <blockquote>
@@ -123,7 +123,7 @@
 <span class="n">client</span> <span class="o">=</span> <span class="n">Upbit</span><span class="p">()</span>
 <span class="n">result</span> <span class="o">=</span> <span class="n">client</span><span class="p">.</span><span class="n">Candle</span><span class="p">.</span><span class="n">Candle_days</span><span class="p">(</span>
     <span class="n">market</span><span class="o">=</span><span class="s">'KRW-BTC'</span>
-<span class="p">).</span><span class="n">result</span><span class="p">()</span>
+<span class="p">)[</span><span class="s">'result'</span><span class="p">]</span>
 <span class="k">print</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
 </code></pre></div>
 <blockquote>
@@ -246,7 +246,7 @@
 <span class="n">client</span> <span class="o">=</span> <span class="n">Upbit</span><span class="p">()</span>
 <span class="n">result</span> <span class="o">=</span> <span class="n">client</span><span class="p">.</span><span class="n">Candle</span><span class="p">.</span><span class="n">Candle_weeks</span><span class="p">(</span>
     <span class="n">market</span><span class="o">=</span><span class="s">'KRW-BTC'</span>
-<span class="p">).</span><span class="n">result</span><span class="p">()</span>
+<span class="p">)[</span><span class="s">'result'</span><span class="p">]</span>
 <span class="k">print</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
 </code></pre></div>
 <blockquote>
@@ -355,7 +355,7 @@
 <span class="n">client</span> <span class="o">=</span> <span class="n">Upbit</span><span class="p">()</span>
 <span class="n">result</span> <span class="o">=</span> <span class="n">client</span><span class="p">.</span><span class="n">Candle</span><span class="p">.</span><span class="n">Candle_month</span><span class="p">(</span>
     <span class="n">market</span><span class="o">=</span><span class="s">'KRW-BTC'</span>
-<span class="p">).</span><span class="n">result</span><span class="p">()</span>
+<span class="p">)[</span><span class="s">'result'</span><span class="p">]</span>
 <span class="k">print</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
 </code></pre></div>
 <blockquote>
