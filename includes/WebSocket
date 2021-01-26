@@ -1,0 +1,609 @@
+<h1 id='websocket'>WebSocket (웹 소켓)</h1><h2 id='upbitwebsocket'>UpbitWebSocket</h2>
+<p>웹 소켓 클래스를 생성합니다.</p>
+
+<blockquote>
+<p>Example Code</p>
+</blockquote>
+<div class="highlight"><pre class="highlight python tab-python"><code><span class="kn">from</span> <span class="nn">upbit.websocket</span> <span class="kn">import</span> <span class="n">UpbitWebSocket</span>
+
+<span class="n">sock</span> <span class="o">=</span> <span class="n">UpbitWebSocket</span><span class="p">()</span>
+</code></pre></div><h2 id='upbitwebsocket-generate_payload-payload-generate'>UpbitWebSocket.generate_payload (Payload Generate)</h2>
+<p><strong>staticmethod</strong></p>
+
+<p>웹 소켓 수신에 필요한 payload 데이터를 json 형식에 맞춰진 문자열로 generate 합니다.</p>
+
+<blockquote>
+<p>Example Code
+```python
+from upbit.websocket import UpbitWebSocket</p>
+</blockquote>
+
+<p>currencies = [&quot;KRW-BTC&quot;, &quot;KRW-ETH&quot;]
+payload = UpbitWebSocket.generate_payload(type=&quot;trade&quot;, codes=currencies)
+print(payload)
+```</p>
+
+<blockquote>
+<p>Result
+<code>python
+[{&quot;ticket&quot;: &quot;0e9a7960-4036-4cf3-abe6-c02712c3aad4&quot;}, {&quot;type&quot;: &quot;trade&quot;, &quot;codes&quot;: [&quot;KRW-BTC&quot;, &quot;KRW-ETH&quot;]}, {&quot;format&quot;: &quot;DEFAULT&quot;}]
+</code></p>
+</blockquote>
+<h3 id='parameters'>Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>ticket</td>
+<td>식별값 (기본값은 <code>uuid4</code> 형식으로 생성)</td>
+</tr>
+<tr>
+<td>type</td>
+<td>수신할 시세 타입 (현재가: <code>ticker</code>, 체결: <code>trade</code>, 호가: <code>orderbook</code>)</td>
+</tr>
+<tr>
+<td>codes</td>
+<td>수신할 시세 종목 정보</td>
+</tr>
+<tr>
+<td>isOnlySnapshot</td>
+<td>시세 스냅샷만 제공 여부</td>
+</tr>
+<tr>
+<td>isOnlyRealtime</td>
+<td>실시간 시세만 제공 여부</td>
+</tr>
+<tr>
+<td>format</td>
+<td>포맷 (<code>SIMPLE</code>: 간소화된 필드명, <code>DEFAULT</code> (생략 가능))</td>
+</tr>
+</tbody></table>
+<h2 id='upbitwebsocket-generate_orderbook_codes-orderbook-codes-generate'>UpbitWebSocket.generate_orderbook_codes (Orderbook Codes Generate)</h2>
+<p><code>type</code> 파라미터가 <code>orderbook</code>일 경우에 필요한 <code>codes</code> 파라미터를 요청 형식에 맞춰 generate 합니다.</p>
+
+<blockquote>
+<p>Example Code
+```python
+from upbit.websocket import UpbitWebSocket</p>
+</blockquote>
+
+<p>currencies = [&quot;KRW-BTC&quot;, &quot;KRW-ETH&quot;]
+counts = [5, 5]
+codes = UpbitWebSocket.generate_orderbook_codes(currencies, counts)
+print(codes)
+```</p>
+
+<blockquote>
+<p>Result
+<code>python
+[&quot;KRW-BTC.5&quot;, &quot;KRW-ETH.5&quot;]
+</code></p>
+</blockquote>
+<h3 id='parameters-2'>Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>currencies</td>
+<td>수신할 시세 종목들</td>
+</tr>
+<tr>
+<td>counts</td>
+<td>수신할 각 시세 종목에 대한 개수</td>
+</tr>
+</tbody></table>
+<h2 id='request'>request (시세 정보 요청하기)</h2>
+<p>웹 소켓을 통해 시세 정보를 요청합니다.</p>
+
+<blockquote>
+<p>Example Code
+```python
+from upbit.websocket import UpbitWebSocket</p>
+</blockquote>
+
+<p>sock = UpbitWebSocket()</p>
+
+<p>currencies = [&quot;KRW-BTC&quot;, &quot;KRW-ETH&quot;]
+payload = sock.generate_payload(type=&quot;trade&quot;, codes=currencies)</p>
+
+<p>result = await sock.request(payload)
+print(result)
+```</p>
+
+<blockquote>
+<p>Result
+<code>json
+{
+    &quot;type&quot;: &quot;trade&quot;,
+    &quot;code&quot;: &quot;KRW-BTC&quot;,
+    &quot;timestamp&quot;: 1611656099678,
+    &quot;trade_date&quot;: &quot;2021-01-26&quot;,
+    &quot;trade_time&quot;: &quot;10:14:59&quot;,
+    &quot;trade_timestamp&quot;: 1611656099000,
+    &quot;trade_price&quot;: 35785000.0,
+    &quot;trade_volume&quot;: 0.00533827,
+    &quot;ask_bid&quot;: &quot;ASK&quot;,
+    &quot;prev_closing_price&quot;: 36054000.0,
+    &quot;change&quot;: &quot;FALL&quot;,
+    &quot;change_price&quot;: 269000.0,
+    &quot;sequential_id&quot;: 1611656099000000,
+    &quot;stream_type&quot;: &quot;SNAPSHOT&quot;
+}
+</code></p>
+</blockquote>
+<h3 id='parameters-3'>Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>payload</td>
+<td>요청 데이터</td>
+</tr>
+</tbody></table>
+<h3 id='response'>Response</h3>
+<p><strong>현재가(Ticker) 응답</strong></p>
+
+<table><thead>
+<tr>
+<th>필드명</th>
+<th>축약형 (format: SIMPLE)</th>
+<th>내용</th>
+<th>타입</th>
+<th>값</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>type</td>
+<td>ty</td>
+<td>타입</td>
+<td>String</td>
+<td><code>ticker</code> : 현재가</td>
+</tr>
+<tr>
+<td>code</td>
+<td>cd</td>
+<td>마켓 코드 (ex. KRW-BTC)</td>
+<td>String</td>
+<td></td>
+</tr>
+<tr>
+<td>opening_price</td>
+<td>op</td>
+<td></td>
+<td>시가</td>
+<td>Double</td>
+</tr>
+<tr>
+<td>high_price</td>
+<td>hp</td>
+<td>고가</td>
+<td>Double</td>
+<td>-</td>
+</tr>
+<tr>
+<td>low_price</td>
+<td>lp</td>
+<td>저가</td>
+<td>Double</td>
+<td>-</td>
+</tr>
+<tr>
+<td>trade_price</td>
+<td>tp</td>
+<td></td>
+<td>현재가</td>
+<td>Double</td>
+</tr>
+<tr>
+<td>prev_closing_price</td>
+<td>pcp</td>
+<td>전일 종가</td>
+<td>Double</td>
+<td></td>
+</tr>
+<tr>
+<td>change</td>
+<td>c</td>
+<td>전일 대비</td>
+<td>String</td>
+<td><code>RISE</code>: 상승, <code>EVEN</code>: 보합, <code>FALL</code>: 하락</td>
+</tr>
+<tr>
+<td>change_price</td>
+<td>cp</td>
+<td>부호 없는 전일 대비 값</td>
+<td>Double</td>
+<td>-</td>
+</tr>
+<tr>
+<td>signed_change_price</td>
+<td>scp</td>
+<td>전일 대비 값</td>
+<td>Double</td>
+<td>-</td>
+</tr>
+<tr>
+<td>change_rate</td>
+<td>cr</td>
+<td>부호 없는 전일 대비 등락율</td>
+<td>Double</td>
+<td>-</td>
+</tr>
+<tr>
+<td>signed_change_rate</td>
+<td>scr</td>
+<td>전일 대비 등락율</td>
+<td>Double</td>
+<td>-</td>
+</tr>
+<tr>
+<td>trade_volume</td>
+<td>tv</td>
+<td>가장 최근 거래량</td>
+<td>Double</td>
+<td>-</td>
+</tr>
+<tr>
+<td>acc_trade_volume</td>
+<td>atv</td>
+<td>누적 거래량(UTC 0시 기준)</td>
+<td>Double</td>
+<td>-</td>
+</tr>
+<tr>
+<td>acc_trade_volume_24h</td>
+<td>atv24h</td>
+<td>24시간 누적 거래량</td>
+<td>Double</td>
+<td>-</td>
+</tr>
+<tr>
+<td>acc_trade_price</td>
+<td>atp</td>
+<td>누적 거래대금(UTC 0시 기준)</td>
+<td>Double</td>
+<td>-</td>
+</tr>
+<tr>
+<td>acc_trade_price_24h</td>
+<td>atp24h</td>
+<td>24시간 누적 거래대금</td>
+<td>Double</td>
+<td>-</td>
+</tr>
+<tr>
+<td>trade_date</td>
+<td>tdt</td>
+<td>최근 거래 일자(UTC)</td>
+<td>String</td>
+<td>yyyyMMdd</td>
+</tr>
+<tr>
+<td>trade_time</td>
+<td>ttm</td>
+<td>최근 거래 시각(UTC)</td>
+<td>String</td>
+<td></td>
+</tr>
+<tr>
+<td>trade_timestamp</td>
+<td>ttms</td>
+<td>체결 타임스탬프 (milliseconds)</td>
+<td>Long</td>
+<td>-</td>
+</tr>
+<tr>
+<td>ask_bid</td>
+<td>ab</td>
+<td>매수/매도 구분</td>
+<td>String</td>
+<td><code>ASK</code>: 매도, <code>BID</code>: 매수</td>
+</tr>
+<tr>
+<td>acc_ask_volume</td>
+<td>aav</td>
+<td>누적 매도량</td>
+<td>Double</td>
+<td>-</td>
+</tr>
+<tr>
+<td>acc_bid_volume</td>
+<td>abv</td>
+<td>누적 매수량</td>
+<td>Double</td>
+<td>-</td>
+</tr>
+<tr>
+<td>highest_52_week_price</td>
+<td>h52wp</td>
+<td>52주 최고가</td>
+<td>Double</td>
+<td>-</td>
+</tr>
+<tr>
+<td>highest_52_week_date</td>
+<td></td>
+<td>h52wdt</td>
+<td>52주 최고가 달성일</td>
+<td>String</td>
+</tr>
+<tr>
+<td>lowest_52_week_price</td>
+<td>l52wp</td>
+<td>52주 최저가</td>
+<td>Double</td>
+<td>-</td>
+</tr>
+<tr>
+<td>lowest_52_week_date</td>
+<td>l52wdt</td>
+<td>52주 최저가 달성일</td>
+<td>String</td>
+<td><code>yyyy-MM-dd</code></td>
+</tr>
+<tr>
+<td>trade_status</td>
+<td>ts</td>
+<td>거래상태 *deprecated</td>
+<td></td>
+<td>String</td>
+</tr>
+<tr>
+<td>market_state</td>
+<td>ms</td>
+<td>거래상태</td>
+<td>String</td>
+<td><code>PREVIEW</code>: 입금지원, <code>ACTIVE</code>: 거래지원가능, <code>DELISTED</code> : 거래지원종료</td>
+</tr>
+<tr>
+<td>market_state_for_ios</td>
+<td>msfi</td>
+<td>거래 상태 *deprecated</td>
+<td>String</td>
+<td>-</td>
+</tr>
+<tr>
+<td>is_trading_suspended</td>
+<td>its</td>
+<td>거래 정지 여부</td>
+<td>Boolean</td>
+<td>-</td>
+</tr>
+<tr>
+<td>delisting_date</td>
+<td>dd</td>
+<td>상장폐지일</td>
+<td>Date</td>
+<td>-</td>
+</tr>
+<tr>
+<td>market_warning</td>
+<td>mw</td>
+<td>유의 종목 여부</td>
+<td>String</td>
+<td><code>NONE</code>: 해당없음, <code>CAUTION</code>: 투자유의</td>
+</tr>
+<tr>
+<td>timestamp</td>
+<td>tms</td>
+<td>타임스탬프 (milliseconds)</td>
+<td>Long</td>
+<td>-</td>
+</tr>
+<tr>
+<td>stream_type</td>
+<td>st</td>
+<td>스트림 타입</td>
+<td>String</td>
+<td><code>SNAPSHOT</code>: 스냅샷, <code>REALTIME</code>: 실시간</td>
+</tr>
+</tbody></table>
+
+<p><strong>체결(Trade) 응답</strong></p>
+
+<table><thead>
+<tr>
+<th>필드명</th>
+<th>축약형 (format: SIMPLE)</th>
+<th>내용</th>
+<th>타입</th>
+<th>값</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>type</td>
+<td>ty</td>
+<td>타입</td>
+<td>String</td>
+<td><code>trade</code>: 체결</td>
+</tr>
+<tr>
+<td>code</td>
+<td>cd</td>
+<td>마켓 코드 (ex. KRW-BTC)</td>
+<td>String</td>
+<td>-</td>
+</tr>
+<tr>
+<td>trade_price</td>
+<td>tp</td>
+<td>체결 가격</td>
+<td>Double</td>
+<td>-</td>
+</tr>
+<tr>
+<td>trade_volume</td>
+<td>tv</td>
+<td>체결량</td>
+<td>Double</td>
+<td>-</td>
+</tr>
+<tr>
+<td>ask_bid</td>
+<td>ab</td>
+<td>매수/매도 구분</td>
+<td>String</td>
+<td><code>ASK</code>: 매도, <code>BID</code>: 매수</td>
+</tr>
+<tr>
+<td>prev_closing_price</td>
+<td>pcp</td>
+<td>전일 종가</td>
+<td>Double</td>
+<td>-</td>
+</tr>
+<tr>
+<td>change</td>
+<td>c</td>
+<td>전일 대비</td>
+<td>String</td>
+<td><code>RISE</code> : 상승, <code>EVEN</code> : 보합, <code>FALL</code> : 하락</td>
+</tr>
+<tr>
+<td>change_price</td>
+<td>cp</td>
+<td>부호 없는 전일 대비 값</td>
+<td>Double</td>
+<td>-</td>
+</tr>
+<tr>
+<td>trade_date</td>
+<td>td</td>
+<td>체결 일자(UTC 기준)</td>
+<td>String</td>
+<td><code>yyyy-MM-dd</code></td>
+</tr>
+<tr>
+<td>trade_time</td>
+<td>ttm</td>
+<td>체결 시각(UTC 기준)</td>
+<td>String</td>
+<td><code>HH:mm:ss</code></td>
+</tr>
+<tr>
+<td>trade_timestamp</td>
+<td>ttms</td>
+<td>체결 타임스탬프 (millisecond)</td>
+<td>Long</td>
+<td>-</td>
+</tr>
+<tr>
+<td>timestamp</td>
+<td>tms</td>
+<td>타임스탬프 (millisecond)</td>
+<td>Long</td>
+<td>-</td>
+</tr>
+<tr>
+<td>sequential_id</td>
+<td>sid</td>
+<td>체결 번호 (Unique)</td>
+<td>Long</td>
+<td>-</td>
+</tr>
+<tr>
+<td>stream_type</td>
+<td>st</td>
+<td>스트림 타입</td>
+<td>String</td>
+<td><code>SNAPSHOT</code>: 스냅샷, <code>REALTIME</code>: 실시간</td>
+</tr>
+</tbody></table>
+
+<aside class="notice">
+    <code>sequential_id</code> 필드는 체결의 유일성 판단을 위한 근거로 쓰일 수 있습니다.
+    <br/>
+    하지만 체결의 순서를 보장하지는 못합니다.
+</aside>
+
+<p><strong>호가(Orderbook) 응답</strong></p>
+
+<table><thead>
+<tr>
+<th>필드명</th>
+<th>축약형 (format: SIMPLE)</th>
+<th>내용</th>
+<th>타입</th>
+<th>값</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>type</td>
+<td>ty</td>
+<td>타입</td>
+<td>String</td>
+<td><code>orderbook</code>: 호가</td>
+</tr>
+<tr>
+<td>code</td>
+<td>cd</td>
+<td>마켓 코드 (ex. KRW-BTC)</td>
+<td>String</td>
+<td>-</td>
+</tr>
+<tr>
+<td>total_ask_size</td>
+<td>tas</td>
+<td>호가 매도 총 잔량</td>
+<td>Double</td>
+<td>-</td>
+</tr>
+<tr>
+<td>total_bid_size</td>
+<td>tbs</td>
+<td>호가 매수 총 잔량</td>
+<td>Double</td>
+<td>-</td>
+</tr>
+<tr>
+<td>orderbook_units</td>
+<td>obu</td>
+<td>호가</td>
+<td>List of Objects</td>
+<td>-</td>
+</tr>
+<tr>
+<td>ask_price</td>
+<td>ap</td>
+<td>매도 호가</td>
+<td>Double</td>
+<td>-</td>
+</tr>
+<tr>
+<td>bid_price</td>
+<td>bp</td>
+<td>매수 호가</td>
+<td>Double</td>
+<td>-</td>
+</tr>
+<tr>
+<td>ask_size</td>
+<td>as</td>
+<td>매도 잔량</td>
+<td>Double</td>
+<td>-</td>
+</tr>
+<tr>
+<td>bid_size</td>
+<td>bs</td>
+<td>매수 잔량</td>
+<td>Double</td>
+<td>-</td>
+</tr>
+<tr>
+<td>timestamp</td>
+<td>tms</td>
+<td>타임스탬프 (millisecond)</td>
+<td>Long</td>
+<td>-</td>
+</tr>
+</tbody></table>
