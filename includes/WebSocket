@@ -13,23 +13,19 @@
 <p>웹 소켓 수신에 필요한 payload 데이터를 json 형식에 맞춰진 문자열로 generate 합니다.</p>
 
 <blockquote>
-<p>Example Code
-```python
-from upbit.websocket import UpbitWebSocket</p>
+<p>Example Code</p>
 </blockquote>
+<div class="highlight"><pre class="highlight python tab-python"><code><span class="kn">from</span> <span class="nn">upbit.websocket</span> <span class="kn">import</span> <span class="n">UpbitWebSocket</span>
 
-<p>currencies = [&quot;KRW-BTC&quot;, &quot;KRW-ETH&quot;]
-payload = UpbitWebSocket.generate_payload(type=&quot;trade&quot;, codes=currencies)
-print(payload)
-```</p>
-
+<span class="n">currencies</span> <span class="o">=</span> <span class="p">[</span><span class="s">"KRW-BTC"</span><span class="p">,</span> <span class="s">"KRW-ETH"</span><span class="p">]</span>
+<span class="n">payload</span> <span class="o">=</span> <span class="n">UpbitWebSocket</span><span class="p">.</span><span class="n">generate_payload</span><span class="p">(</span><span class="nb">type</span><span class="o">=</span><span class="s">"trade"</span><span class="p">,</span> <span class="n">codes</span><span class="o">=</span><span class="n">currencies</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">payload</span><span class="p">)</span>
+</code></pre></div>
 <blockquote>
-<p>Result
-<code>python
-[{&quot;ticket&quot;: &quot;0e9a7960-4036-4cf3-abe6-c02712c3aad4&quot;}, {&quot;type&quot;: &quot;trade&quot;, &quot;codes&quot;: [&quot;KRW-BTC&quot;, &quot;KRW-ETH&quot;]}, {&quot;format&quot;: &quot;DEFAULT&quot;}]
-</code></p>
+<p>Result</p>
 </blockquote>
-<h3 id='parameters'>Parameters</h3>
+<div class="highlight"><pre class="highlight python tab-python"><code><span class="p">[{</span><span class="s">"ticket"</span><span class="p">:</span> <span class="s">"0e9a7960-4036-4cf3-abe6-c02712c3aad4"</span><span class="p">},</span> <span class="p">{</span><span class="s">"type"</span><span class="p">:</span> <span class="s">"trade"</span><span class="p">,</span> <span class="s">"codes"</span><span class="p">:</span> <span class="p">[</span><span class="s">"KRW-BTC"</span><span class="p">,</span> <span class="s">"KRW-ETH"</span><span class="p">]},</span> <span class="p">{</span><span class="s">"format"</span><span class="p">:</span> <span class="s">"DEFAULT"</span><span class="p">}]</span>
+</code></pre></div><h3 id='parameters'>Parameters</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -65,24 +61,20 @@ print(payload)
 <p><code>type</code> 파라미터가 <code>orderbook</code>일 경우에 필요한 <code>codes</code> 파라미터를 요청 형식에 맞춰 generate 합니다.</p>
 
 <blockquote>
-<p>Example Code
-```python
-from upbit.websocket import UpbitWebSocket</p>
+<p>Example Code</p>
 </blockquote>
+<div class="highlight"><pre class="highlight python tab-python"><code><span class="kn">from</span> <span class="nn">upbit.websocket</span> <span class="kn">import</span> <span class="n">UpbitWebSocket</span>
 
-<p>currencies = [&quot;KRW-BTC&quot;, &quot;KRW-ETH&quot;]
-counts = [5, 5]
-codes = UpbitWebSocket.generate_orderbook_codes(currencies, counts)
-print(codes)
-```</p>
-
+<span class="n">currencies</span> <span class="o">=</span> <span class="p">[</span><span class="s">"KRW-BTC"</span><span class="p">,</span> <span class="s">"KRW-ETH"</span><span class="p">]</span>
+<span class="n">counts</span> <span class="o">=</span> <span class="p">[</span><span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">]</span>
+<span class="n">codes</span> <span class="o">=</span> <span class="n">UpbitWebSocket</span><span class="p">.</span><span class="n">generate_orderbook_codes</span><span class="p">(</span><span class="n">currencies</span><span class="p">,</span> <span class="n">counts</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">codes</span><span class="p">)</span>
+</code></pre></div>
 <blockquote>
-<p>Result
-<code>python
-[&quot;KRW-BTC.5&quot;, &quot;KRW-ETH.5&quot;]
-</code></p>
+<p>Result</p>
 </blockquote>
-<h3 id='parameters-2'>Parameters</h3>
+<div class="highlight"><pre class="highlight python tab-python"><code><span class="p">[</span><span class="s">"KRW-BTC.5"</span><span class="p">,</span> <span class="s">"KRW-ETH.5"</span><span class="p">]</span>
+</code></pre></div><h3 id='parameters-2'>Parameters</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -102,42 +94,38 @@ print(codes)
 <p>웹 소켓을 통해 시세 정보를 요청합니다.</p>
 
 <blockquote>
-<p>Example Code
-```python
-from upbit.websocket import UpbitWebSocket</p>
+<p>Example Code</p>
 </blockquote>
+<div class="highlight"><pre class="highlight python tab-python"><code><span class="kn">from</span> <span class="nn">upbit.websocket</span> <span class="kn">import</span> <span class="n">UpbitWebSocket</span>
 
-<p>sock = UpbitWebSocket()</p>
+<span class="n">sock</span> <span class="o">=</span> <span class="n">UpbitWebSocket</span><span class="p">()</span>
 
-<p>currencies = [&quot;KRW-BTC&quot;, &quot;KRW-ETH&quot;]
-payload = sock.generate_payload(type=&quot;trade&quot;, codes=currencies)</p>
+<span class="n">currencies</span> <span class="o">=</span> <span class="p">[</span><span class="s">"KRW-BTC"</span><span class="p">,</span> <span class="s">"KRW-ETH"</span><span class="p">]</span>
+<span class="n">payload</span> <span class="o">=</span> <span class="n">sock</span><span class="p">.</span><span class="n">generate_payload</span><span class="p">(</span><span class="nb">type</span><span class="o">=</span><span class="s">"trade"</span><span class="p">,</span> <span class="n">codes</span><span class="o">=</span><span class="n">currencies</span><span class="p">)</span>
 
-<p>result = await sock.request(payload)
-print(result)
-```</p>
-
+<span class="n">result</span> <span class="o">=</span> <span class="k">await</span> <span class="n">sock</span><span class="p">.</span><span class="n">request</span><span class="p">(</span><span class="n">payload</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
+</code></pre></div>
 <blockquote>
-<p>Result
-<code>json
-{
-    &quot;type&quot;: &quot;trade&quot;,
-    &quot;code&quot;: &quot;KRW-BTC&quot;,
-    &quot;timestamp&quot;: 1611656099678,
-    &quot;trade_date&quot;: &quot;2021-01-26&quot;,
-    &quot;trade_time&quot;: &quot;10:14:59&quot;,
-    &quot;trade_timestamp&quot;: 1611656099000,
-    &quot;trade_price&quot;: 35785000.0,
-    &quot;trade_volume&quot;: 0.00533827,
-    &quot;ask_bid&quot;: &quot;ASK&quot;,
-    &quot;prev_closing_price&quot;: 36054000.0,
-    &quot;change&quot;: &quot;FALL&quot;,
-    &quot;change_price&quot;: 269000.0,
-    &quot;sequential_id&quot;: 1611656099000000,
-    &quot;stream_type&quot;: &quot;SNAPSHOT&quot;
-}
-</code></p>
+<p>Result</p>
 </blockquote>
-<h3 id='parameters-3'>Parameters</h3>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"trade"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"KRW-BTC"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"timestamp"</span><span class="p">:</span><span class="w"> </span><span class="mi">1611656099678</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"trade_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2021-01-26"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"trade_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"10:14:59"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"trade_timestamp"</span><span class="p">:</span><span class="w"> </span><span class="mi">1611656099000</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"trade_price"</span><span class="p">:</span><span class="w"> </span><span class="mf">35785000.0</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"trade_volume"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.00533827</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"ask_bid"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ASK"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"prev_closing_price"</span><span class="p">:</span><span class="w"> </span><span class="mf">36054000.0</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"change"</span><span class="p">:</span><span class="w"> </span><span class="s2">"FALL"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"change_price"</span><span class="p">:</span><span class="w"> </span><span class="mf">269000.0</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"sequential_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1611656099000000</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"stream_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"SNAPSHOT"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div><h3 id='parameters-3'>Parameters</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
