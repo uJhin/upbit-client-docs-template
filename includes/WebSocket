@@ -58,6 +58,8 @@
 </tr>
 </tbody></table>
 <h2 id='upbitwebsocket-generate_orderbook_codes-orderbook-codes-generate'>UpbitWebSocket.generate_orderbook_codes (Orderbook Codes Generate)</h2>
+<p><strong>staticmethod</strong></p>
+
 <p><code>type</code> 파라미터가 <code>orderbook</code>일 경우에 필요한 <code>codes</code> 파라미터를 요청 형식에 맞춰 generate 합니다.</p>
 
 <blockquote>
