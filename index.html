@@ -714,22 +714,23 @@
 </ul>
 <h1 id='install'>Install (설치)</h1>
 <blockquote>
-<p>pip command</p>
+<p>Command</p>
 </blockquote>
-<div class="highlight"><pre class="highlight console tab-console"><code><span class="go">pip install upbit-client
-</span></code></pre></div>
-<blockquote>
-<p>git command</p>
-</blockquote>
-<div class="highlight"><pre class="highlight console tab-console"><code><span class="go">git clone https://github.com/uJhin/upbit-client.git
-</span></code></pre></div>
-<p>설치는 <code>pip</code> 커맨드를 사용하여 다음과 같이 진행합니다.</p>
-
-<p><code>pip install upbit-client</code></p>
-
-<p>혹은 <code>git</code> 커맨드를 사용하여 다음과 같이 진행합니다.</p>
+<div class="highlight"><pre class="highlight console tab-console"><code><span class="gp">&gt;</span><span class="w"> </span>pip <span class="nb">install </span>upbit-client
+<span class="gp">&gt;</span><span class="w"> </span>git clone https://github.com/uJhin/upbit-client.git
+<span class="gp">&gt;</span><span class="w"> </span>git clone https://github.com/uJhin/python-upbit-client.git
+</code></pre></div>
+<p>설치는 <code>git</code> 커맨드를 사용하여 다음과 같이 진행합니다.</p>
 
 <p><code>git clone https://github.com/uJhin/upbit-client.git</code></p>
+
+<p>Python 패키지는 아래와 같이 진행합니다.</p>
+
+<p><code>git clone https://github.com/uJhin/python-upbit-client.git</code></p>
+
+<p>혹은 <code>pip</code> 커맨드를 사용하여 다음과 같이 진행합니다.</p>
+
+<p><code>pip install upbit-client</code></p>
 <h1 id='authentication'>Authentication (인증)</h1>
 <blockquote>
 <p>Request Example</p>
@@ -859,7 +860,7 @@ Open API 호출 시 남아있는 요청 수는 <code>Remaining-Req</code> 응답
 <blockquote>
 <p>Result</p>
 </blockquote>
-<div class="highlight"><pre class="highlight python tab-python"><code><span class="n">UpbitClient</span><span class="p">(</span><span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">api</span><span class="p">.</span><span class="n">upbit</span><span class="p">.</span><span class="n">com</span><span class="o">/</span><span class="p">)</span>
+<div class="highlight"><pre class="highlight python tab-python"><code><span class="n">UpbitClient</span><span class="p">(</span><span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">api</span><span class="p">.</span><span class="n">upbit</span><span class="p">.</span><span class="n">com</span><span class="p">)</span>
 </code></pre></div>
 <p>설치가 완료되면 <code>from upbit.client import Upbit</code>로 패키지를 import 합니다.
 그 다음 <code>UpbitClient</code> 객체를 생성하면 클라이언트를 사용할 준비가 완료됩니다.</p>

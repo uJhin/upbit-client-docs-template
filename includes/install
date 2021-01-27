@@ -1,18 +1,19 @@
 <h1 id='install'>Install (설치)</h1>
 <blockquote>
-<p>pip command</p>
+<p>Command</p>
 </blockquote>
-<div class="highlight"><pre class="highlight console tab-console"><code><span class="go">pip install upbit-client
-</span></code></pre></div>
-<blockquote>
-<p>git command</p>
-</blockquote>
-<div class="highlight"><pre class="highlight console tab-console"><code><span class="go">git clone https://github.com/uJhin/upbit-client.git
-</span></code></pre></div>
-<p>설치는 <code>pip</code> 커맨드를 사용하여 다음과 같이 진행합니다.</p>
-
-<p><code>pip install upbit-client</code></p>
-
-<p>혹은 <code>git</code> 커맨드를 사용하여 다음과 같이 진행합니다.</p>
+<div class="highlight"><pre class="highlight console tab-console"><code><span class="gp">&gt;</span><span class="w"> </span>pip <span class="nb">install </span>upbit-client
+<span class="gp">&gt;</span><span class="w"> </span>git clone https://github.com/uJhin/upbit-client.git
+<span class="gp">&gt;</span><span class="w"> </span>git clone https://github.com/uJhin/python-upbit-client.git
+</code></pre></div>
+<p>설치는 <code>git</code> 커맨드를 사용하여 다음과 같이 진행합니다.</p>
 
 <p><code>git clone https://github.com/uJhin/upbit-client.git</code></p>
+
+<p>Python 패키지는 아래와 같이 진행합니다.</p>
+
+<p><code>git clone https://github.com/uJhin/python-upbit-client.git</code></p>
+
+<p>혹은 <code>pip</code> 커맨드를 사용하여 다음과 같이 진행합니다.</p>
+
+<p><code>pip install upbit-client</code></p>
