@@ -764,7 +764,7 @@ payload의 <code>query_hash</code> 값을 생성할 때 사용하는 쿼리 값�
 <aside class="warning">
 Signature 생성시 secret encoding 옵션을 확인해주세요. <b>발급된 <code>secret key</code>는 base64로 encoding 되어있지 않습니다.</b> JWT 관련 library를 사용하신다면 해당 옵션을 확인해주세요.
 </aside>
-<h1 id='remaining-requests'>Remaining Requests (요청 수 제한)</h1><h2 id='e193e9d311'>남은 요청 수 확인하기</h2>
+<h1 id='remaining-requests'>Remaining Requests (요청 수 제한)</h1><h3 id='e193e9d311'>남은 요청 수 확인하기</h3>
 <p>UpbitClient 사용 시 모든 결과는 <code>json</code> 포맷으로 반환되며, <code>remaining_request</code> 키값을 가집니다.</p>
 
 <blockquote>
@@ -790,7 +790,7 @@ Signature 생성시 secret encoding 옵션을 확인해주세요. <b>발급된 <
 </span><span class="p">},</span><span class="w">
   </span><span class="nl">"result"</span><span class="p">:</span><span class="w"> </span><span class="err">...</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre></div><h2 id='4274c598a1'>상세 설명</h2><h3 id='exchange-api'>EXCHANGE API</h3>
+</span></code></pre></div><h3 id='4274c598a1'>상세 설명</h3><h4 id='exchange-api'>EXCHANGE API</h4>
 <p><strong>주문</strong></p>
 
 <p><code>초당 8회</code>, <code>분당 200회</code></p>
@@ -805,7 +805,7 @@ Signature 생성시 secret encoding 옵션을 확인해주세요. <b>발급된 <
 - 서비스 및 서버 상황 등에 따라 상기 요청 수가 일시적으로 보장되지 않을 수 있습니다.
 - 사용 가능한 잔여 요청 수는 하단의 잔여 요청 수 확인 방법을 참고하시어 확인하실 수 있습니다.
 - (업데이트) 주문 API와 주문 외 API 요청 수 제한은 별도로 계산 됩니다.</p>
-<h3 id='quotation-api'>QUOTATION API</h3>
+<h4 id='quotation-api'>QUOTATION API</h4>
 <p><strong>웹 소켓(Websocket) 연결 요청 수 제한</strong></p>
 
 <p><code>초당 5회</code>, <code>분당 100회</code></p>
