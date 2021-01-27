@@ -1,4 +1,4 @@
-<h1 id='upbitclient-upbit'>UpbitClient (Upbit 클라이언트 사용하기)</h1>
+<h1 id='upbitclient-upbit'>UpbitClient (Upbit 클라이언트 사용하기)</h1><h2 id='4d259256d6'>클라이언트 객체 생성</h2>
 <blockquote>
 <p>Code Example</p>
 </blockquote>
@@ -39,5 +39,27 @@
 <tr>
 <td>config</td>
 <td>Swagger Client Configuration</td>
+</tr>
+</tbody></table>
+<h2 id='71d855acd9'>결과</h2>
+<p>모든 요청에 대한 결과는 JSON 포맷으로 반환됩니다.</p>
+
+<p>남은 요청 제한 시간에 대한 <code>remaining_request</code>와 응답 결과 <code>result</code>의 키(key) 값을 가집니다.</p>
+
+<p>요청 제한에 대한 부분은 <code>Remaining Requests (요청 수 제한)</code> 섹션에서 다룹니다.</p>
+<h3 id='result'>Result</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>remaining_request</td>
+<td>남은 요청 제한 시간</td>
+</tr>
+<tr>
+<td>result</td>
+<td>요청에 대한 결과</td>
 </tr>
 </tbody></table>

@@ -366,16 +366,13 @@
             <a href="#authentication" class="toc-h1 toc-link" data-title="Authentication (인증)">Authentication (인증)</a>
           </li>
           <li>
-            <a href="#request-limits" class="toc-h1 toc-link" data-title="Request Limits (요청 수 제한)">Request Limits (요청 수 제한)</a>
+            <a href="#remaining-requests" class="toc-h1 toc-link" data-title="Remaining Requests (요청 수 제한)">Remaining Requests (요청 수 제한)</a>
               <ul class="toc-list-h2">
                   <li>
-                    <a href="#exchange-api" class="toc-h2 toc-link" data-title="EXCHANGE API">EXCHANGE API</a>
-                  </li>
-                  <li>
-                    <a href="#quotation-api" class="toc-h2 toc-link" data-title="QUOTATION API">QUOTATION API</a>
-                  </li>
-                  <li>
                     <a href="#e193e9d311" class="toc-h2 toc-link" data-title="남은 요청 수 확인하기">남은 요청 수 확인하기</a>
+                  </li>
+                  <li>
+                    <a href="#4274c598a1" class="toc-h2 toc-link" data-title="상세 설명">상세 설명</a>
                   </li>
               </ul>
           </li>
@@ -383,7 +380,10 @@
             <a href="#upbitclient-upbit" class="toc-h1 toc-link" data-title="UpbitClient (Upbit 클라이언트 사용하기)">UpbitClient (Upbit 클라이언트 사용하기)</a>
               <ul class="toc-list-h2">
                   <li>
-                    <a href="#upbitclient-access_key-secret_key-kwargs" class="toc-h2 toc-link" data-title="UpbitClient(access_key, secret_key, **kwargs)">UpbitClient(access_key, secret_key, **kwargs)</a>
+                    <a href="#4d259256d6" class="toc-h2 toc-link" data-title="클라이언트 객체 생성">클라이언트 객체 생성</a>
+                  </li>
+                  <li>
+                    <a href="#71d855acd9" class="toc-h2 toc-link" data-title="결과">결과</a>
                   </li>
               </ul>
           </li>
@@ -764,7 +764,33 @@ payload의 <code>query_hash</code> 값을 생성할 때 사용하는 쿼리 값�
 <aside class="warning">
 Signature 생성시 secret encoding 옵션을 확인해주세요. <b>발급된 <code>secret key</code>는 base64로 encoding 되어있지 않습니다.</b> JWT 관련 library를 사용하신다면 해당 옵션을 확인해주세요.
 </aside>
-<h1 id='request-limits'>Request Limits (요청 수 제한)</h1><h3 id='exchange-api'>EXCHANGE API</h3>
+<h1 id='remaining-requests'>Remaining Requests (요청 수 제한)</h1><h2 id='e193e9d311'>남은 요청 수 확인하기</h2>
+<p>UpbitClient 사용 시 모든 결과는 <code>json</code> 포맷으로 반환되며, <code>remaining_request</code> 키값을 가집니다.</p>
+
+<blockquote>
+<p>Example Code</p>
+</blockquote>
+<div class="highlight"><pre class="highlight python tab-python"><code><span class="kn">from</span> <span class="nn">upbit.client</span> <span class="kn">import</span> <span class="n">Upbit</span>
+
+<span class="n">access_key</span> <span class="o">=</span> <span class="s">"Your Access Key"</span>
+<span class="n">secret_key</span> <span class="o">=</span> <span class="s">"Your Secret Key"</span>
+
+<span class="n">client</span> <span class="o">=</span> <span class="n">Upbit</span><span class="p">(</span><span class="n">access_key</span><span class="p">,</span> <span class="n">secret_key</span><span class="p">)</span>
+<span class="n">result</span> <span class="o">=</span> <span class="n">client</span><span class="p">.</span><span class="n">APIKey</span><span class="p">.</span><span class="n">APIKey_info</span><span class="p">()</span>
+<span class="k">print</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
+</code></pre></div>
+<blockquote>
+<p>Result Example</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"remaining_request"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"group"</span><span class="p">:</span><span class="w"> </span><span class="s2">"default"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"min"</span><span class="p">:</span><span class="w"> </span><span class="s2">"899"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"sec"</span><span class="p">:</span><span class="w"> </span><span class="s2">"29"</span><span class="w">
+</span><span class="p">},</span><span class="w">
+  </span><span class="nl">"result"</span><span class="p">:</span><span class="w"> </span><span class="err">...</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div><h2 id='4274c598a1'>상세 설명</h2><h3 id='exchange-api'>EXCHANGE API</h3>
 <p><strong>주문</strong></p>
 
 <p><code>초당 8회</code>, <code>분당 200회</code></p>
@@ -816,33 +842,7 @@ Open API 호출 시 남아있는 요청 수는 <code>Remaining-Req</code> 응답
 <aside class="notice">
   <b>NOTE</b>: 해당 시간 내 초과된 요청에 대해서 <code>429 Too Many   Requests</code> 오류가 발생할 수 있습니다. 하지만 별도의 추가적인   페널티는 부과되지 않습니다.
 </aside>
-<h3 id='e193e9d311'>남은 요청 수 확인하기</h3>
-<p>모든 결과는 <code>json</code> 형식으로 반환되며, <code>remaining_request</code> 키값을 가집니다.</p>
-
-<blockquote>
-<p>Example Code</p>
-</blockquote>
-<div class="highlight"><pre class="highlight python tab-python"><code><span class="kn">from</span> <span class="nn">upbit.client</span> <span class="kn">import</span> <span class="n">Upbit</span>
-
-<span class="n">access_key</span> <span class="o">=</span> <span class="s">"Your Access Key"</span>
-<span class="n">secret_key</span> <span class="o">=</span> <span class="s">"Your Secret Key"</span>
-
-<span class="n">client</span> <span class="o">=</span> <span class="n">Upbit</span><span class="p">(</span><span class="n">access_key</span><span class="p">,</span> <span class="n">secret_key</span><span class="p">)</span>
-<span class="n">result</span> <span class="o">=</span> <span class="n">client</span><span class="p">.</span><span class="n">APIKey</span><span class="p">.</span><span class="n">APIKey_info</span><span class="p">()</span>
-<span class="k">print</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
-</code></pre></div>
-<blockquote>
-<p>Result Example</p>
-</blockquote>
-<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-  </span><span class="nl">"remaining_request"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-    </span><span class="nl">"group"</span><span class="p">:</span><span class="w"> </span><span class="s2">"default"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"min"</span><span class="p">:</span><span class="w"> </span><span class="s2">"899"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"sec"</span><span class="p">:</span><span class="w"> </span><span class="s2">"29"</span><span class="w">
-</span><span class="p">},</span><span class="w">
-  </span><span class="nl">"result"</span><span class="p">:</span><span class="w"> </span><span class="err">...</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre></div><h1 id='upbitclient-upbit'>UpbitClient (Upbit 클라이언트 사용하기)</h1>
+<h1 id='upbitclient-upbit'>UpbitClient (Upbit 클라이언트 사용하기)</h1><h2 id='4d259256d6'>클라이언트 객체 생성</h2>
 <blockquote>
 <p>Code Example</p>
 </blockquote>
@@ -883,6 +883,28 @@ Open API 호출 시 남아있는 요청 수는 <code>Remaining-Req</code> 응답
 <tr>
 <td>config</td>
 <td>Swagger Client Configuration</td>
+</tr>
+</tbody></table>
+<h2 id='71d855acd9'>결과</h2>
+<p>모든 요청에 대한 결과는 JSON 포맷으로 반환됩니다.</p>
+
+<p>남은 요청 제한 시간에 대한 <code>remaining_request</code>와 응답 결과 <code>result</code>의 키(key) 값을 가집니다.</p>
+
+<p>요청 제한에 대한 부분은 <code>Remaining Requests (요청 수 제한)</code> 섹션에서 다룹니다.</p>
+<h3 id='result'>Result</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>remaining_request</td>
+<td>남은 요청 제한 시간</td>
+</tr>
+<tr>
+<td>result</td>
+<td>요청에 대한 결과</td>
 </tr>
 </tbody></table>
 <h1 id='apikey-api'>APIKey (API 키)</h1><h2 id='apikey_info-api'>APIKey_info (API 키 리스트 조회)</h2>
