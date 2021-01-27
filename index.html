@@ -512,7 +512,7 @@
                     <a href="#upbitwebsocket" class="toc-h2 toc-link" data-title="UpbitWebSocket">UpbitWebSocket</a>
                   </li>
                   <li>
-                    <a href="#sock-connection" class="toc-h2 toc-link" data-title="sock.Connection">sock.Connection</a>
+                    <a href="#socket-connection" class="toc-h2 toc-link" data-title="socket.Connection">socket.Connection</a>
                   </li>
                   <li>
                     <a href="#conn-send" class="toc-h2 toc-link" data-title="conn.send">conn.send</a>
@@ -4649,6 +4649,10 @@ Open API 호출 시 남아있는 요청 수는 <code>Remaining-Req</code> 응답
 <div class="highlight"><pre class="highlight python tab-python"><code><span class="kn">from</span> <span class="nn">upbit.websocket</span> <span class="kn">import</span> <span class="n">UpbitWebSocket</span>
 
 <span class="n">sock</span> <span class="o">=</span> <span class="n">UpbitWebSocket</span><span class="p">()</span>
+
+<span class="k">async</span> <span class="k">with</span> <span class="n">sock</span> <span class="k">as</span> <span class="n">conn</span><span class="p">:</span>
+    <span class="c1"># Do something
+</span>    <span class="k">pass</span>
 </code></pre></div><h3 id='upbitwebsocket-uri-websocket_uri-ping_interval-none-ping_timeout-none'>UpbitWebSocket(uri=WEBSOCKET_URI, ping_interval=None, ping_timeout=None)</h3>
 <table><thead>
 <tr>
@@ -4669,10 +4673,12 @@ Open API 호출 시 남아있는 요청 수는 <code>Remaining-Req</code> 응답
 <td>ping 시간 초과 제한 (기본값: <code>None</code>)</td>
 </tr>
 </tbody></table>
-<h2 id='sock-connection'>sock.Connection</h2>
+<h2 id='socket-connection'>socket.Connection</h2>
 <p><strong>Property</strong></p>
 
 <p>웹 소켓에 연결하기 위해 생성된 Connection 객체입니다.</p>
+
+<p>위의 예제와 동일한 결과를 가질 수 있습니다.</p>
 
 <blockquote>
 <p>Example Code</p>
@@ -4680,8 +4686,9 @@ Open API 호출 시 남아있는 요청 수는 <code>Remaining-Req</code> 응답
 <div class="highlight"><pre class="highlight python tab-python"><code><span class="kn">from</span> <span class="nn">upbit.websocket</span> <span class="kn">import</span> <span class="n">UpbitWebSocket</span>
 
 <span class="n">sock</span> <span class="o">=</span> <span class="n">UpbitWebSocket</span><span class="p">()</span>
+<span class="n">connection</span> <span class="o">=</span> <span class="n">sock</span><span class="p">.</span><span class="n">Connection</span>
 
-<span class="k">async</span> <span class="k">with</span> <span class="n">sock</span><span class="p">.</span><span class="n">Connection</span> <span class="k">as</span> <span class="n">conn</span><span class="p">:</span>
+<span class="k">async</span> <span class="k">with</span> <span class="n">connection</span> <span class="k">as</span> <span class="n">conn</span><span class="p">:</span>
     <span class="c1"># Do Something
 </span>    <span class="k">pass</span>
 </code></pre></div><h2 id='conn-send'>conn.send</h2>
@@ -4694,7 +4701,7 @@ Open API 호출 시 남아있는 요청 수는 <code>Remaining-Req</code> 응답
 
 <span class="n">sock</span> <span class="o">=</span> <span class="n">UpbitWebSocket</span><span class="p">()</span>
 
-<span class="k">async</span> <span class="k">with</span> <span class="n">sock</span><span class="p">.</span><span class="n">Connection</span> <span class="k">as</span> <span class="n">conn</span><span class="p">:</span>
+<span class="k">async</span> <span class="k">with</span> <span class="n">sock</span> <span class="k">as</span> <span class="n">conn</span><span class="p">:</span>
     <span class="k">await</span> <span class="n">conn</span><span class="p">.</span><span class="n">send</span><span class="p">(</span><span class="s">'PING'</span><span class="p">)</span>
 </code></pre></div><h3 id='conn-send-message'>conn.send(message)</h3>
 <table><thead>
@@ -4846,7 +4853,7 @@ Open API 호출 시 남아있는 요청 수는 <code>Remaining-Req</code> 응답
 
 <span class="c1"># Definition async function
 </span><span class="k">async</span> <span class="k">def</span> <span class="nf">trade</span><span class="p">(</span><span class="n">sock</span><span class="p">,</span> <span class="n">payload</span><span class="p">):</span>
-    <span class="k">async</span> <span class="k">with</span> <span class="n">sock</span><span class="p">.</span><span class="n">Connection</span> <span class="k">as</span> <span class="n">conn</span><span class="p">:</span>
+    <span class="k">async</span> <span class="k">with</span> <span class="n">sock</span> <span class="k">as</span> <span class="n">conn</span><span class="p">:</span>
         <span class="k">await</span> <span class="n">conn</span><span class="p">.</span><span class="n">send</span><span class="p">(</span><span class="n">payload</span><span class="p">)</span>
         <span class="n">data</span> <span class="o">=</span> <span class="k">await</span> <span class="n">conn</span><span class="p">.</span><span class="n">recv</span><span class="p">()</span>
         <span class="n">result</span> <span class="o">=</span> <span class="n">json</span><span class="p">.</span><span class="n">loads</span><span class="p">(</span><span class="n">data</span><span class="p">.</span><span class="n">decode</span><span class="p">(</span><span class="s">'utf8'</span><span class="p">))</span>
