@@ -383,6 +383,9 @@
                     <a href="#4d259256d6" class="toc-h2 toc-link" data-title="클라이언트 객체 생성">클라이언트 객체 생성</a>
                   </li>
                   <li>
+                    <a href="#upbitclient-access_key-secret_key-kwargs" class="toc-h2 toc-link" data-title="UpbitClient(access_key, secret_key, **kwargs)">UpbitClient(access_key, secret_key, **kwargs)</a>
+                  </li>
+                  <li>
                     <a href="#71d855acd9" class="toc-h2 toc-link" data-title="결과">결과</a>
                   </li>
               </ul>
@@ -842,7 +845,7 @@ Open API 호출 시 남아있는 요청 수는 <code>Remaining-Req</code> 응답
 <aside class="notice">
   <b>NOTE</b>: 해당 시간 내 초과된 요청에 대해서 <code>429 Too Many   Requests</code> 오류가 발생할 수 있습니다. 하지만 별도의 추가적인   페널티는 부과되지 않습니다.
 </aside>
-<h1 id='upbitclient-upbit'>UpbitClient (Upbit 클라이언트 사용하기)</h1><h2 id='4d259256d6'>클라이언트 객체 생성</h2>
+<h1 id='upbitclient-upbit'>UpbitClient (Upbit 클라이언트 사용하기)</h1><h3 id='4d259256d6'>클라이언트 객체 생성</h3>
 <blockquote>
 <p>Code Example</p>
 </blockquote>
@@ -885,13 +888,13 @@ Open API 호출 시 남아있는 요청 수는 <code>Remaining-Req</code> 응답
 <td>Swagger Client Configuration</td>
 </tr>
 </tbody></table>
-<h2 id='71d855acd9'>결과</h2>
+<h3 id='71d855acd9'>결과</h3>
 <p>모든 요청에 대한 결과는 JSON 포맷으로 반환됩니다.</p>
 
 <p>남은 요청 제한 시간에 대한 <code>remaining_request</code>와 응답 결과 <code>result</code>의 키(key) 값을 가집니다.</p>
 
 <p>요청 제한에 대한 부분은 <code>Remaining Requests (요청 수 제한)</code> 섹션에서 다룹니다.</p>
-<h3 id='result'>Result</h3>
+
 <table><thead>
 <tr>
 <th>Parameter</th>
