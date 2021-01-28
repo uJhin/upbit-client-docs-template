@@ -844,8 +844,8 @@ Signature 생성시 secret encoding 옵션을 확인해주세요. <b>발급된 <
 <span class="n">secret_key</span> <span class="o">=</span> <span class="s">"Your Secret Key"</span>
 
 <span class="n">client</span> <span class="o">=</span> <span class="n">Upbit</span><span class="p">(</span><span class="n">access_key</span><span class="p">,</span> <span class="n">secret_key</span><span class="p">)</span>
-<span class="n">result</span> <span class="o">=</span> <span class="n">client</span><span class="p">.</span><span class="n">APIKey</span><span class="p">.</span><span class="n">APIKey_info</span><span class="p">()</span>
-<span class="k">print</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
+<span class="n">resp</span> <span class="o">=</span> <span class="n">client</span><span class="p">.</span><span class="n">APIKey</span><span class="p">.</span><span class="n">APIKey_info</span><span class="p">()</span>
+<span class="k">print</span><span class="p">(</span><span class="n">resp</span><span class="p">[</span><span class="s">'result'</span><span class="p">])</span>
 </code></pre></div>
 <blockquote>
 <p>Result Example</p>
@@ -927,8 +927,8 @@ Signature 생성시 secret encoding 옵션을 확인해주세요. <b>발급된 <
 <span class="n">secret_key</span> <span class="o">=</span> <span class="s">"Your Secret Key"</span>
 
 <span class="n">client</span> <span class="o">=</span> <span class="n">Upbit</span><span class="p">(</span><span class="n">access_key</span><span class="p">,</span> <span class="n">secret_key</span><span class="p">)</span>
-<span class="n">result</span> <span class="o">=</span> <span class="n">client</span><span class="p">.</span><span class="n">APIKey</span><span class="p">.</span><span class="n">APIKey_info</span><span class="p">()[</span><span class="s">'result'</span><span class="p">]</span>
-<span class="k">print</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
+<span class="n">resp</span> <span class="o">=</span> <span class="n">client</span><span class="p">.</span><span class="n">APIKey</span><span class="p">.</span><span class="n">APIKey_info</span><span class="p">()</span>
+<span class="k">print</span><span class="p">(</span><span class="n">resp</span><span class="p">[</span><span class="s">'result'</span><span class="p">])</span>
 </code></pre></div>
 <blockquote>
 <p>Response Example</p>
@@ -977,8 +977,8 @@ Signature 생성시 secret encoding 옵션을 확인해주세요. <b>발급된 <
 <span class="n">secret_key</span> <span class="o">=</span> <span class="s">"Your Secret Key"</span>
 
 <span class="n">client</span> <span class="o">=</span> <span class="n">Upbit</span><span class="p">(</span><span class="n">access_key</span><span class="p">,</span> <span class="n">secret_key</span><span class="p">)</span>
-<span class="n">result</span> <span class="o">=</span> <span class="n">client</span><span class="p">.</span><span class="n">Account</span><span class="p">.</span><span class="n">Account_info</span><span class="p">()[</span><span class="s">'result'</span><span class="p">]</span>
-<span class="k">print</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
+<span class="n">resp</span> <span class="o">=</span> <span class="n">client</span><span class="p">.</span><span class="n">Account</span><span class="p">.</span><span class="n">Account_info</span><span class="p">()</span>
+<span class="k">print</span><span class="p">(</span><span class="n">resp</span><span class="p">[</span><span class="s">'result'</span><span class="p">])</span>
 </code></pre></div>
 <blockquote>
 <p>Response Example</p>
@@ -1059,8 +1059,8 @@ Signature 생성시 secret encoding 옵션을 확인해주세요. <b>발급된 <
 <span class="n">secret_key</span> <span class="o">=</span> <span class="s">"Your Secret Key"</span>
 
 <span class="n">client</span> <span class="o">=</span> <span class="n">Upbit</span><span class="p">(</span><span class="n">access_key</span><span class="p">,</span> <span class="n">secret_key</span><span class="p">)</span>
-<span class="n">result</span> <span class="o">=</span> <span class="n">client</span><span class="p">.</span><span class="n">Account</span><span class="p">.</span><span class="n">Account_wallet</span><span class="p">()[</span><span class="s">'result'</span><span class="p">]</span>
-<span class="k">print</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
+<span class="n">resp</span> <span class="o">=</span> <span class="n">client</span><span class="p">.</span><span class="n">Account</span><span class="p">.</span><span class="n">Account_wallet</span><span class="p">()</span>
+<span class="k">print</span><span class="p">(</span><span class="n">resp</span><span class="p">[</span><span class="s">'result'</span><span class="p">])</span>
 </code></pre></div>
 <blockquote>
 <p>Response Example</p>
@@ -1187,8 +1187,8 @@ Signature 생성시 secret encoding 옵션을 확인해주세요. <b>발급된 <
 <div class="highlight"><pre class="highlight python tab-python"><code><span class="kn">from</span> <span class="nn">upbit.client</span> <span class="kn">import</span> <span class="n">Upbit</span>
 
 <span class="n">client</span> <span class="o">=</span> <span class="n">Upbit</span><span class="p">()</span>
-<span class="n">result</span> <span class="o">=</span> <span class="n">client</span><span class="p">.</span><span class="n">Market</span><span class="p">.</span><span class="n">Market_info_all</span><span class="p">()[</span><span class="s">'result'</span><span class="p">]</span>
-<span class="k">print</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
+<span class="n">resp</span> <span class="o">=</span> <span class="n">client</span><span class="p">.</span><span class="n">Market</span><span class="p">.</span><span class="n">Market_info_all</span><span class="p">()</span>
+<span class="k">print</span><span class="p">(</span><span class="n">resp</span><span class="p">[</span><span class="s">'result'</span><span class="p">])</span>
 </code></pre></div>
 <blockquote>
 <p>Response Example</p>
@@ -1270,10 +1270,10 @@ Signature 생성시 secret encoding 옵션을 확인해주세요. <b>발급된 <
 <div class="highlight"><pre class="highlight python tab-python"><code><span class="kn">from</span> <span class="nn">upbit.client</span> <span class="kn">import</span> <span class="n">Upbit</span>
 
 <span class="n">client</span> <span class="o">=</span> <span class="n">Upbit</span><span class="p">()</span>
-<span class="n">result</span> <span class="o">=</span> <span class="n">client</span><span class="p">.</span><span class="n">Order</span><span class="p">.</span><span class="n">Order_orderbook</span><span class="p">(</span>
+<span class="n">resp</span> <span class="o">=</span> <span class="n">client</span><span class="p">.</span><span class="n">Order</span><span class="p">.</span><span class="n">Order_orderbook</span><span class="p">(</span>
     <span class="n">markets</span><span class="o">=</span><span class="p">[</span><span class="s">'KRW-BTC'</span><span class="p">,</span> <span class="s">'KRW-ETH'</span><span class="p">]</span>
-<span class="p">)[</span><span class="s">'result'</span><span class="p">]</span>
-<span class="k">print</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
+<span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">resp</span><span class="p">[</span><span class="s">'result'</span><span class="p">])</span>
 </code></pre></div>
 <blockquote>
 <p>Response Example</p>
@@ -1418,10 +1418,10 @@ Signature 생성시 secret encoding 옵션을 확인해주세요. <b>발급된 <
 <span class="n">secret_key</span> <span class="o">=</span> <span class="s">"Your Secret Key"</span>
 
 <span class="n">client</span> <span class="o">=</span> <span class="n">Upbit</span><span class="p">(</span><span class="n">access_key</span><span class="p">,</span> <span class="n">secret_key</span><span class="p">)</span>
-<span class="n">result</span> <span class="o">=</span> <span class="n">client</span><span class="p">.</span><span class="n">Order</span><span class="p">.</span><span class="n">Order_chance</span><span class="p">(</span>
+<span class="n">resp</span> <span class="o">=</span> <span class="n">client</span><span class="p">.</span><span class="n">Order</span><span class="p">.</span><span class="n">Order_chance</span><span class="p">(</span>
     <span class="n">market</span><span class="o">=</span><span class="s">'KRW-BTC'</span>
-<span class="p">)[</span><span class="s">'result'</span><span class="p">]</span>
-<span class="k">print</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
+<span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">resp</span><span class="p">[</span><span class="s">'result'</span><span class="p">])</span>
 </code></pre></div>
 <blockquote>
 <p>Response Example</p>
@@ -1643,10 +1643,10 @@ Signature 생성시 secret encoding 옵션을 확인해주세요. <b>발급된 <
 <span class="n">secret_key</span> <span class="o">=</span> <span class="s">"Your Secret Key"</span>
 
 <span class="n">client</span> <span class="o">=</span> <span class="n">Upbit</span><span class="p">(</span><span class="n">access_key</span><span class="p">,</span> <span class="n">secret_key</span><span class="p">)</span>
-<span class="n">result</span> <span class="o">=</span> <span class="n">client</span><span class="p">.</span><span class="n">Order</span><span class="p">.</span><span class="n">Order_info</span><span class="p">(</span>
+<span class="n">resp</span> <span class="o">=</span> <span class="n">client</span><span class="p">.</span><span class="n">Order</span><span class="p">.</span><span class="n">Order_info</span><span class="p">(</span>
     <span class="n">uuid</span><span class="o">=</span><span class="s">'9ca023a5-851b-4fec-9f0a-48cd83c2eaae'</span>
-<span class="p">)[</span><span class="s">'result'</span><span class="p">]</span>
-<span class="k">print</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
+<span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">resp</span><span class="p">[</span><span class="s">'result'</span><span class="p">])</span>
 </code></pre></div>
 <blockquote>
 <p>Response Example</p>
@@ -1814,8 +1814,8 @@ Signature 생성시 secret encoding 옵션을 확인해주세요. <b>발급된 <
 <span class="n">secret_key</span> <span class="o">=</span> <span class="s">"Your Secret Key"</span>
 
 <span class="n">client</span> <span class="o">=</span> <span class="n">Upbit</span><span class="p">(</span><span class="n">access_key</span><span class="p">,</span> <span class="n">secret_key</span><span class="p">)</span>
-<span class="n">result</span> <span class="o">=</span> <span class="n">client</span><span class="p">.</span><span class="n">Order</span><span class="p">.</span><span class="n">Order_info_all</span><span class="p">()[</span><span class="s">'result'</span><span class="p">]</span>
-<span class="k">print</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
+<span class="n">resp</span> <span class="o">=</span> <span class="n">client</span><span class="p">.</span><span class="n">Order</span><span class="p">.</span><span class="n">Order_info_all</span><span class="p">()</span>
+<span class="k">print</span><span class="p">(</span><span class="n">resp</span><span class="p">[</span><span class="s">'result'</span><span class="p">])</span>
 </code></pre></div>
 <blockquote>
 <p>Response Example</p>
@@ -2008,14 +2008,14 @@ Signature 생성시 secret encoding 옵션을 확인해주세요. <b>발급된 <
 <span class="n">secret_key</span> <span class="o">=</span> <span class="s">"Your Secret Key"</span>
 
 <span class="n">client</span> <span class="o">=</span> <span class="n">Upbit</span><span class="p">(</span><span class="n">access_key</span><span class="p">,</span> <span class="n">secret_key</span><span class="p">)</span>
-<span class="n">result</span> <span class="o">=</span> <span class="n">client</span><span class="p">.</span><span class="n">Order</span><span class="p">.</span><span class="n">Order_new</span><span class="p">(</span>
+<span class="n">resp</span> <span class="o">=</span> <span class="n">client</span><span class="p">.</span><span class="n">Order</span><span class="p">.</span><span class="n">Order_new</span><span class="p">(</span>
     <span class="n">market</span><span class="o">=</span><span class="s">'KRW-BTC'</span><span class="p">,</span>
     <span class="n">side</span><span class="o">=</span><span class="s">'bid'</span><span class="p">,</span>
     <span class="n">volume</span><span class="o">=</span><span class="s">'0.01'</span><span class="p">,</span>
     <span class="n">price</span><span class="o">=</span><span class="s">'100.0'</span><span class="p">,</span>
     <span class="n">ord_type</span><span class="o">=</span><span class="s">'limit'</span>
-<span class="p">)[</span><span class="s">'result'</span><span class="p">]</span>
-<span class="k">print</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
+<span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">resp</span><span class="p">[</span><span class="s">'result'</span><span class="p">])</span>
 </code></pre></div>
 <blockquote>
 <p>Response Example</p>
@@ -2230,10 +2230,10 @@ Signature 생성시 secret encoding 옵션을 확인해주세요. <b>발급된 <
 <span class="n">secret_key</span> <span class="o">=</span> <span class="s">"Your Secret Key"</span>
 
 <span class="n">client</span> <span class="o">=</span> <span class="n">Upbit</span><span class="p">(</span><span class="n">access_key</span><span class="p">,</span> <span class="n">secret_key</span><span class="p">)</span>
-<span class="n">result</span> <span class="o">=</span> <span class="n">client</span><span class="p">.</span><span class="n">Order</span><span class="p">.</span><span class="n">Order_cancel</span><span class="p">(</span>
+<span class="n">resp</span> <span class="o">=</span> <span class="n">client</span><span class="p">.</span><span class="n">Order</span><span class="p">.</span><span class="n">Order_cancel</span><span class="p">(</span>
     <span class="n">uuid</span><span class="o">=</span><span class="s">'cdd92199-2897-4e14-9448-f923320408ad'</span>
-<span class="p">)[</span><span class="s">'result'</span><span class="p">]</span>
-<span class="k">print</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
+<span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">resp</span><span class="p">[</span><span class="s">'result'</span><span class="p">])</span>
 </code></pre></div>
 <blockquote>
 <p>Response Example</p>
@@ -2359,8 +2359,8 @@ Signature 생성시 secret encoding 옵션을 확인해주세요. <b>발급된 <
 <span class="n">secret_key</span> <span class="o">=</span> <span class="s">"Your Secret Key"</span>
 
 <span class="n">client</span> <span class="o">=</span> <span class="n">Upbit</span><span class="p">(</span><span class="n">access_key</span><span class="p">,</span> <span class="n">secret_key</span><span class="p">)</span>
-<span class="n">result</span> <span class="o">=</span> <span class="n">client</span><span class="p">.</span><span class="n">Deposit</span><span class="p">.</span><span class="n">Deposit_info_all</span><span class="p">()[</span><span class="s">'result'</span><span class="p">]</span>
-<span class="k">print</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
+<span class="n">resp</span> <span class="o">=</span> <span class="n">client</span><span class="p">.</span><span class="n">Deposit</span><span class="p">.</span><span class="n">Deposit_info_all</span><span class="p">()</span>
+<span class="k">print</span><span class="p">(</span><span class="n">resp</span><span class="p">[</span><span class="s">'result'</span><span class="p">])</span>
 </code></pre></div>
 <blockquote>
 <p>Response Example</p>
@@ -2582,10 +2582,10 @@ Signature 생성시 secret encoding 옵션을 확인해주세요. <b>발급된 <
 <span class="n">secret_key</span> <span class="o">=</span> <span class="s">"Your Secret Key"</span>
 
 <span class="n">client</span> <span class="o">=</span> <span class="n">Upbit</span><span class="p">(</span><span class="n">access_key</span><span class="p">,</span> <span class="n">secret_key</span><span class="p">)</span>
-<span class="n">result</span> <span class="o">=</span> <span class="n">client</span><span class="p">.</span><span class="n">Deposit</span><span class="p">.</span><span class="n">Deposit_info</span><span class="p">(</span>
+<span class="n">resp</span> <span class="o">=</span> <span class="n">client</span><span class="p">.</span><span class="n">Deposit</span><span class="p">.</span><span class="n">Deposit_info</span><span class="p">(</span>
     <span class="n">uuid</span><span class="o">=</span><span class="s">'20c84493-6e70-4e54-83ce-90915a19d110'</span>
-<span class="p">)[</span><span class="s">'result'</span><span class="p">]</span>
-<span class="k">print</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
+<span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">resp</span><span class="p">[</span><span class="s">'result'</span><span class="p">])</span>
 </code></pre></div>
 <blockquote>
 <p>Response Example</p>
@@ -2752,8 +2752,8 @@ Signature 생성시 secret encoding 옵션을 확인해주세요. <b>발급된 <
 <span class="n">secret_key</span> <span class="o">=</span> <span class="s">"Your Secret Key"</span>
 
 <span class="n">client</span> <span class="o">=</span> <span class="n">Upbit</span><span class="p">(</span><span class="n">access_key</span><span class="p">,</span> <span class="n">secret_key</span><span class="p">)</span>
-<span class="n">result</span> <span class="o">=</span> <span class="n">client</span><span class="p">.</span><span class="n">Deposit</span><span class="p">.</span><span class="n">Deposit_coin_addresses</span><span class="p">()[</span><span class="s">'result'</span><span class="p">]</span>
-<span class="k">print</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
+<span class="n">resp</span> <span class="o">=</span> <span class="n">client</span><span class="p">.</span><span class="n">Deposit</span><span class="p">.</span><span class="n">Deposit_coin_addresses</span><span class="p">()</span>
+<span class="k">print</span><span class="p">(</span><span class="n">resp</span><span class="p">[</span><span class="s">'result'</span><span class="p">])</span>
 </code></pre></div>
 <blockquote>
 <p>Response Example</p>
@@ -2826,10 +2826,10 @@ Signature 생성시 secret encoding 옵션을 확인해주세요. <b>발급된 <
 <span class="n">secret_key</span> <span class="o">=</span> <span class="s">"Your Secret Key"</span>
 
 <span class="n">client</span> <span class="o">=</span> <span class="n">Upbit</span><span class="p">(</span><span class="n">access_key</span><span class="p">,</span> <span class="n">secret_key</span><span class="p">)</span>
-<span class="n">result</span> <span class="o">=</span> <span class="n">client</span><span class="p">.</span><span class="n">Deposit</span><span class="p">.</span><span class="n">Deposit_coin_address</span><span class="p">(</span>
+<span class="n">resp</span> <span class="o">=</span> <span class="n">client</span><span class="p">.</span><span class="n">Deposit</span><span class="p">.</span><span class="n">Deposit_coin_address</span><span class="p">(</span>
     <span class="n">currency</span><span class="o">=</span><span class="s">'BTC'</span>
-<span class="p">)[</span><span class="s">'result'</span><span class="p">]</span>
-<span class="k">print</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
+<span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">resp</span><span class="p">[</span><span class="s">'result'</span><span class="p">])</span>
 </code></pre></div>
 <blockquote>
 <p>Response Example</p>
@@ -2894,10 +2894,10 @@ Signature 생성시 secret encoding 옵션을 확인해주세요. <b>발급된 <
 <span class="n">secret_key</span> <span class="o">=</span> <span class="s">"Your Secret Key"</span>
 
 <span class="n">client</span> <span class="o">=</span> <span class="n">Upbit</span><span class="p">(</span><span class="n">access_key</span><span class="p">,</span> <span class="n">secret_key</span><span class="p">)</span>
-<span class="n">result</span> <span class="o">=</span> <span class="n">client</span><span class="p">.</span><span class="n">Deposit</span><span class="p">.</span><span class="n">Deposit_generate_coin_address</span><span class="p">(</span>
+<span class="n">resp</span> <span class="o">=</span> <span class="n">client</span><span class="p">.</span><span class="n">Deposit</span><span class="p">.</span><span class="n">Deposit_generate_coin_address</span><span class="p">(</span>
     <span class="n">currency</span><span class="o">=</span><span class="s">'SNT'</span>
-<span class="p">)[</span><span class="s">'result'</span><span class="p">]</span>
-<span class="k">print</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
+<span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">resp</span><span class="p">[</span><span class="s">'result'</span><span class="p">])</span>
 </code></pre></div>
 <blockquote>
 <p>Response1 Example: 201 Created</p>
@@ -2993,8 +2993,8 @@ Signature 생성시 secret encoding 옵션을 확인해주세요. <b>발급된 <
 <span class="n">secret_key</span> <span class="o">=</span> <span class="s">"Your Secret Key"</span>
 
 <span class="n">client</span> <span class="o">=</span> <span class="n">Upbit</span><span class="p">(</span><span class="n">access_key</span><span class="p">,</span> <span class="n">secret_key</span><span class="p">)</span>
-<span class="n">result</span> <span class="o">=</span> <span class="n">client</span><span class="p">.</span><span class="n">Withdraw</span><span class="p">.</span><span class="n">Withdraw_info_all</span><span class="p">()[</span><span class="s">'result'</span><span class="p">]</span>
-<span class="k">print</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
+<span class="n">resp</span> <span class="o">=</span> <span class="n">client</span><span class="p">.</span><span class="n">Withdraw</span><span class="p">.</span><span class="n">Withdraw_info_all</span><span class="p">()</span>
+<span class="k">print</span><span class="p">(</span><span class="n">resp</span><span class="p">[</span><span class="s">'result'</span><span class="p">])</span>
 </code></pre></div>
 <blockquote>
 <p>Response Example</p>
@@ -3206,10 +3206,10 @@ Signature 생성시 secret encoding 옵션을 확인해주세요. <b>발급된 <
 <span class="n">secret_key</span> <span class="o">=</span> <span class="s">"Your Secret Key"</span>
 
 <span class="n">client</span> <span class="o">=</span> <span class="n">Upbit</span><span class="p">(</span><span class="n">access_key</span><span class="p">,</span> <span class="n">secret_key</span><span class="p">)</span>
-<span class="n">result</span> <span class="o">=</span> <span class="n">client</span><span class="p">.</span><span class="n">Withdraw</span><span class="p">.</span><span class="n">Withdraw_info</span><span class="p">(</span>
+<span class="n">resp</span> <span class="o">=</span> <span class="n">client</span><span class="p">.</span><span class="n">Withdraw</span><span class="p">.</span><span class="n">Withdraw_info</span><span class="p">(</span>
     <span class="n">uuid</span><span class="o">=</span><span class="s">'35a4f1dc-1db5-4d6b-89b5-7ec137875956'</span>
-<span class="p">)[</span><span class="s">'result'</span><span class="p">]</span>
-<span class="k">print</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
+<span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">resp</span><span class="p">[</span><span class="s">'result'</span><span class="p">])</span>
 </code></pre></div>
 <blockquote>
 <p>Response Example</p>
@@ -3376,10 +3376,10 @@ Signature 생성시 secret encoding 옵션을 확인해주세요. <b>발급된 <
 <span class="n">secret_key</span> <span class="o">=</span> <span class="s">"Your Secret Key"</span>
 
 <span class="n">client</span> <span class="o">=</span> <span class="n">Upbit</span><span class="p">(</span><span class="n">access_key</span><span class="p">,</span> <span class="n">secret_key</span><span class="p">)</span>
-<span class="n">result</span> <span class="o">=</span> <span class="n">client</span><span class="p">.</span><span class="n">Withdraw</span><span class="p">.</span><span class="n">Withdraw_chance</span><span class="p">(</span>
+<span class="n">resp</span> <span class="o">=</span> <span class="n">client</span><span class="p">.</span><span class="n">Withdraw</span><span class="p">.</span><span class="n">Withdraw_chance</span><span class="p">(</span>
     <span class="n">currency</span><span class="o">=</span><span class="s">'BTC'</span>
-<span class="p">)[</span><span class="s">'result'</span><span class="p">]</span>
-<span class="k">print</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
+<span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">resp</span><span class="p">[</span><span class="s">'result'</span><span class="p">])</span>
 </code></pre></div>
 <blockquote>
 <p>Response Example</p>
@@ -3586,12 +3586,12 @@ Signature 생성시 secret encoding 옵션을 확인해주세요. <b>발급된 <
 <span class="n">secret_key</span> <span class="o">=</span> <span class="s">"Your Secret Key"</span>
 
 <span class="n">client</span> <span class="o">=</span> <span class="n">Upbit</span><span class="p">(</span><span class="n">access_key</span><span class="p">,</span> <span class="n">secret_key</span><span class="p">)</span>
-<span class="n">result</span> <span class="o">=</span> <span class="n">client</span><span class="p">.</span><span class="n">Withdraw</span><span class="p">.</span><span class="n">Withdraw_coin</span><span class="p">(</span>
+<span class="n">resp</span> <span class="o">=</span> <span class="n">client</span><span class="p">.</span><span class="n">Withdraw</span><span class="p">.</span><span class="n">Withdraw_coin</span><span class="p">(</span>
     <span class="n">currency</span><span class="o">=</span><span class="s">'BTC'</span><span class="p">,</span>
     <span class="n">amount</span><span class="o">=</span><span class="s">'0.01'</span><span class="p">,</span>
     <span class="n">address</span><span class="o">=</span><span class="s">'3NVw2seiTQddGQwc1apqudKxuTqebpyL3s'</span>
-<span class="p">)[</span><span class="s">'result'</span><span class="p">]</span>
-<span class="k">print</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
+<span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">resp</span><span class="p">[</span><span class="s">'result'</span><span class="p">])</span>
 </code></pre></div>
 <blockquote>
 <p>Response Example</p>
@@ -3783,10 +3783,10 @@ Signature 생성시 secret encoding 옵션을 확인해주세요. <b>발급된 <
 <span class="n">secret_key</span> <span class="o">=</span> <span class="s">"Your Secret Key"</span>
 
 <span class="n">client</span> <span class="o">=</span> <span class="n">Upbit</span><span class="p">(</span><span class="n">access_key</span><span class="p">,</span> <span class="n">secret_key</span><span class="p">)</span>
-<span class="n">result</span> <span class="o">=</span> <span class="n">client</span><span class="p">.</span><span class="n">Withdraw</span><span class="p">.</span><span class="n">Withdraw_krw</span><span class="p">(</span>
+<span class="n">resp</span> <span class="o">=</span> <span class="n">client</span><span class="p">.</span><span class="n">Withdraw</span><span class="p">.</span><span class="n">Withdraw_krw</span><span class="p">(</span>
     <span class="n">amount</span><span class="o">=</span><span class="s">'10000'</span>
-<span class="p">)[</span><span class="s">'result'</span><span class="p">]</span>
-<span class="k">print</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
+<span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">resp</span><span class="p">[</span><span class="s">'result'</span><span class="p">])</span>
 </code></pre></div>
 <blockquote>
 <p>Response Example</p>
@@ -3923,11 +3923,11 @@ Signature 생성시 secret encoding 옵션을 확인해주세요. <b>발급된 <
 <div class="highlight"><pre class="highlight python tab-python"><code><span class="kn">from</span> <span class="nn">upbit.client</span> <span class="kn">import</span> <span class="n">Upbit</span>
 
 <span class="n">client</span> <span class="o">=</span> <span class="n">Upbit</span><span class="p">()</span>
-<span class="n">result</span> <span class="o">=</span> <span class="n">client</span><span class="p">.</span><span class="n">Candle</span><span class="p">.</span><span class="n">Candle_minutes</span><span class="p">(</span>
+<span class="n">resp</span> <span class="o">=</span> <span class="n">client</span><span class="p">.</span><span class="n">Candle</span><span class="p">.</span><span class="n">Candle_minutes</span><span class="p">(</span>
     <span class="n">unit</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
     <span class="n">market</span><span class="o">=</span><span class="s">'KRW-BTC'</span>
-<span class="p">)[</span><span class="s">'result'</span><span class="p">]</span>
-<span class="k">print</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
+<span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">resp</span><span class="p">[</span><span class="s">'result'</span><span class="p">])</span>
 </code></pre></div>
 <blockquote>
 <p>Response Example</p>
@@ -4037,10 +4037,10 @@ Signature 생성시 secret encoding 옵션을 확인해주세요. <b>발급된 <
 <div class="highlight"><pre class="highlight python tab-python"><code><span class="kn">from</span> <span class="nn">upbit.client</span> <span class="kn">import</span> <span class="n">Upbit</span>
 
 <span class="n">client</span> <span class="o">=</span> <span class="n">Upbit</span><span class="p">()</span>
-<span class="n">result</span> <span class="o">=</span> <span class="n">client</span><span class="p">.</span><span class="n">Candle</span><span class="p">.</span><span class="n">Candle_days</span><span class="p">(</span>
+<span class="n">resp</span> <span class="o">=</span> <span class="n">client</span><span class="p">.</span><span class="n">Candle</span><span class="p">.</span><span class="n">Candle_days</span><span class="p">(</span>
     <span class="n">market</span><span class="o">=</span><span class="s">'KRW-BTC'</span>
-<span class="p">)[</span><span class="s">'result'</span><span class="p">]</span>
-<span class="k">print</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
+<span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">resp</span><span class="p">[</span><span class="s">'result'</span><span class="p">])</span>
 </code></pre></div>
 <blockquote>
 <p>Response Example</p>
@@ -4160,10 +4160,10 @@ Signature 생성시 secret encoding 옵션을 확인해주세요. <b>발급된 <
 <div class="highlight"><pre class="highlight python tab-python"><code><span class="kn">from</span> <span class="nn">upbit.client</span> <span class="kn">import</span> <span class="n">Upbit</span>
 
 <span class="n">client</span> <span class="o">=</span> <span class="n">Upbit</span><span class="p">()</span>
-<span class="n">result</span> <span class="o">=</span> <span class="n">client</span><span class="p">.</span><span class="n">Candle</span><span class="p">.</span><span class="n">Candle_weeks</span><span class="p">(</span>
+<span class="n">resp</span> <span class="o">=</span> <span class="n">client</span><span class="p">.</span><span class="n">Candle</span><span class="p">.</span><span class="n">Candle_weeks</span><span class="p">(</span>
     <span class="n">market</span><span class="o">=</span><span class="s">'KRW-BTC'</span>
-<span class="p">)[</span><span class="s">'result'</span><span class="p">]</span>
-<span class="k">print</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
+<span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">resp</span><span class="p">[</span><span class="s">'result'</span><span class="p">])</span>
 </code></pre></div>
 <blockquote>
 <p>Response Example</p>
@@ -4269,10 +4269,10 @@ Signature 생성시 secret encoding 옵션을 확인해주세요. <b>발급된 <
 <div class="highlight"><pre class="highlight python tab-python"><code><span class="kn">from</span> <span class="nn">upbit.client</span> <span class="kn">import</span> <span class="n">Upbit</span>
 
 <span class="n">client</span> <span class="o">=</span> <span class="n">Upbit</span><span class="p">()</span>
-<span class="n">result</span> <span class="o">=</span> <span class="n">client</span><span class="p">.</span><span class="n">Candle</span><span class="p">.</span><span class="n">Candle_month</span><span class="p">(</span>
+<span class="n">resp</span> <span class="o">=</span> <span class="n">client</span><span class="p">.</span><span class="n">Candle</span><span class="p">.</span><span class="n">Candle_month</span><span class="p">(</span>
     <span class="n">market</span><span class="o">=</span><span class="s">'KRW-BTC'</span>
-<span class="p">)[</span><span class="s">'result'</span><span class="p">]</span>
-<span class="k">print</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
+<span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">resp</span><span class="p">[</span><span class="s">'result'</span><span class="p">])</span>
 </code></pre></div>
 <blockquote>
 <p>Response Example</p>
@@ -4378,10 +4378,10 @@ Signature 생성시 secret encoding 옵션을 확인해주세요. <b>발급된 <
 <div class="highlight"><pre class="highlight python tab-python"><code><span class="kn">from</span> <span class="nn">upbit.client</span> <span class="kn">import</span> <span class="n">Upbit</span>
 
 <span class="n">client</span> <span class="o">=</span> <span class="n">Upbit</span><span class="p">()</span>
-<span class="n">result</span> <span class="o">=</span> <span class="n">client</span><span class="p">.</span><span class="n">Trade</span><span class="p">.</span><span class="n">Trade_ticks</span><span class="p">(</span>
+<span class="n">resp</span> <span class="o">=</span> <span class="n">client</span><span class="p">.</span><span class="n">Trade</span><span class="p">.</span><span class="n">Trade_ticks</span><span class="p">(</span>
     <span class="n">market</span><span class="o">=</span><span class="s">'KRW-BTC'</span>
-<span class="p">)[</span><span class="s">'result'</span><span class="p">]</span>
-<span class="k">print</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
+<span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">resp</span><span class="p">[</span><span class="s">'result'</span><span class="p">])</span>
 </code></pre></div>
 <blockquote>
 <p>Response Example</p>
@@ -4492,10 +4492,10 @@ Signature 생성시 secret encoding 옵션을 확인해주세요. <b>발급된 <
 <div class="highlight"><pre class="highlight python tab-python"><code><span class="kn">from</span> <span class="nn">upbit.client</span> <span class="kn">import</span> <span class="n">Upbit</span>
 
 <span class="n">client</span> <span class="o">=</span> <span class="n">Upbit</span><span class="p">()</span>
-<span class="n">result</span> <span class="o">=</span> <span class="n">client</span><span class="p">.</span><span class="n">Trade</span><span class="p">.</span><span class="n">Trade_ticker</span><span class="p">(</span>
+<span class="n">resp</span> <span class="o">=</span> <span class="n">client</span><span class="p">.</span><span class="n">Trade</span><span class="p">.</span><span class="n">Trade_ticker</span><span class="p">(</span>
     <span class="n">markets</span><span class="o">=</span><span class="s">'KRW-BTC, KRW-ETH'</span>
-<span class="p">)[</span><span class="s">'result'</span><span class="p">]</span>
-<span class="k">print</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
+<span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">resp</span><span class="p">[</span><span class="s">'result'</span><span class="p">])</span>
 </code></pre></div>
 <blockquote>
 <p>Response Example</p>
@@ -4899,8 +4899,8 @@ Signature 생성시 secret encoding 옵션을 확인해주세요. <b>발급된 <
 
     <span class="n">pattern</span> <span class="o">=</span> <span class="n">re</span><span class="p">.</span><span class="nb">compile</span><span class="p">(</span><span class="s">'{"\S+":"\S+"}'</span><span class="p">)</span>
     <span class="n">search</span> <span class="o">=</span> <span class="n">pattern</span><span class="p">.</span><span class="n">search</span><span class="p">(</span><span class="n">data</span><span class="p">.</span><span class="n">decode</span><span class="p">(</span><span class="s">'utf8'</span><span class="p">))</span>
-    <span class="n">result</span> <span class="o">=</span> <span class="n">json</span><span class="p">.</span><span class="n">loads</span><span class="p">(</span><span class="n">search</span><span class="p">.</span><span class="n">group</span><span class="p">())</span>
-    <span class="k">print</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
+    <span class="n">resp</span> <span class="o">=</span> <span class="n">json</span><span class="p">.</span><span class="n">loads</span><span class="p">(</span><span class="n">search</span><span class="p">.</span><span class="n">group</span><span class="p">())</span>
+    <span class="k">print</span><span class="p">(</span><span class="n">resp</span><span class="p">[</span><span class="s">'result'</span><span class="p">])</span>
 </code></pre></div>
 <blockquote>
 <p>Result</p>
@@ -5024,8 +5024,8 @@ Signature 생성시 secret encoding 옵션을 확인해주세요. <b>발급된 <
     <span class="k">async</span> <span class="k">with</span> <span class="n">sock</span> <span class="k">as</span> <span class="n">conn</span><span class="p">:</span>
         <span class="k">await</span> <span class="n">conn</span><span class="p">.</span><span class="n">send</span><span class="p">(</span><span class="n">payload</span><span class="p">)</span>
         <span class="n">data</span> <span class="o">=</span> <span class="k">await</span> <span class="n">conn</span><span class="p">.</span><span class="n">recv</span><span class="p">()</span>
-        <span class="n">result</span> <span class="o">=</span> <span class="n">json</span><span class="p">.</span><span class="n">loads</span><span class="p">(</span><span class="n">data</span><span class="p">.</span><span class="n">decode</span><span class="p">(</span><span class="s">'utf8'</span><span class="p">))</span>
-        <span class="k">print</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
+        <span class="n">resp</span> <span class="o">=</span> <span class="n">json</span><span class="p">.</span><span class="n">loads</span><span class="p">(</span><span class="n">data</span><span class="p">.</span><span class="n">decode</span><span class="p">(</span><span class="s">'utf8'</span><span class="p">))</span>
+        <span class="k">print</span><span class="p">(</span><span class="n">resp</span><span class="p">[</span><span class="s">'result'</span><span class="p">])</span>
 
 
 <span class="n">sock</span> <span class="o">=</span> <span class="n">UpbitWebSocket</span><span class="p">()</span>
