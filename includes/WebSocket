@@ -338,10 +338,12 @@
 <span class="c1"># Definition async function
 </span><span class="k">async</span> <span class="k">def</span> <span class="nf">ticker</span><span class="p">(</span><span class="n">sock</span><span class="p">,</span> <span class="n">payload</span><span class="p">):</span>
     <span class="k">async</span> <span class="k">with</span> <span class="n">sock</span> <span class="k">as</span> <span class="n">conn</span><span class="p">:</span>
-        <span class="k">await</span> <span class="n">conn</span><span class="p">.</span><span class="n">send</span><span class="p">(</span><span class="n">payload</span><span class="p">)</span>
-        <span class="n">data</span> <span class="o">=</span> <span class="k">await</span> <span class="n">conn</span><span class="p">.</span><span class="n">recv</span><span class="p">()</span>
-        <span class="n">result</span> <span class="o">=</span> <span class="n">json</span><span class="p">.</span><span class="n">loads</span><span class="p">(</span><span class="n">data</span><span class="p">.</span><span class="n">decode</span><span class="p">(</span><span class="s">'utf8'</span><span class="p">))</span>
-        <span class="k">print</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
+        <span class="k">while</span> <span class="bp">True</span><span class="p">:</span>
+            <span class="k">await</span> <span class="n">conn</span><span class="p">.</span><span class="n">send</span><span class="p">(</span><span class="n">payload</span><span class="p">)</span>
+            <span class="n">recv</span> <span class="o">=</span> <span class="k">await</span> <span class="n">conn</span><span class="p">.</span><span class="n">recv</span><span class="p">()</span>
+            <span class="n">data</span> <span class="o">=</span> <span class="n">recv</span><span class="p">.</span><span class="n">decode</span><span class="p">(</span><span class="s">'utf8'</span><span class="p">)</span>
+            <span class="n">result</span> <span class="o">=</span> <span class="n">json</span><span class="p">.</span><span class="n">loads</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+            <span class="k">print</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
 
 
 <span class="n">sock</span> <span class="o">=</span> <span class="n">UpbitWebSocket</span><span class="p">()</span>
@@ -359,25 +361,25 @@
 <div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
     </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ticker"</span><span class="p">,</span><span class="w">
     </span><span class="nl">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"KRW-BTC"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"opening_price"</span><span class="p">:</span><span class="w"> </span><span class="mf">36631000.0</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"high_price"</span><span class="p">:</span><span class="w"> </span><span class="mf">41072000.0</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"low_price"</span><span class="p">:</span><span class="w"> </span><span class="mf">35514000.0</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"trade_price"</span><span class="p">:</span><span class="w"> </span><span class="mf">40334000.0</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"prev_closing_price"</span><span class="p">:</span><span class="w"> </span><span class="mf">36624000.0</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"acc_trade_price"</span><span class="p">:</span><span class="w"> </span><span class="mf">948695315919.5629</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"opening_price"</span><span class="p">:</span><span class="w"> </span><span class="mf">36408000.0</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"high_price"</span><span class="p">:</span><span class="w"> </span><span class="mf">38161000.0</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"low_price"</span><span class="p">:</span><span class="w"> </span><span class="mf">35907000.0</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"trade_price"</span><span class="p">:</span><span class="w"> </span><span class="mf">36784000.0</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"prev_closing_price"</span><span class="p">:</span><span class="w"> </span><span class="mf">36408000.0</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"acc_trade_price"</span><span class="p">:</span><span class="w"> </span><span class="mf">466420626861.1874</span><span class="p">,</span><span class="w">
     </span><span class="nl">"change"</span><span class="p">:</span><span class="w"> </span><span class="s2">"RISE"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"change_price"</span><span class="p">:</span><span class="w"> </span><span class="mf">3710000.0</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"signed_change_price"</span><span class="p">:</span><span class="w"> </span><span class="mf">3710000.0</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"change_rate"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.1012996942</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"signed_change_rate"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.1012996942</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"ask_bid"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ASK"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"trade_volume"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.00034</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"acc_trade_volume"</span><span class="p">:</span><span class="w"> </span><span class="mf">24619.8580828</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"trade_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"20210129"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"trade_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"134357"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"trade_timestamp"</span><span class="p">:</span><span class="w"> </span><span class="mi">1611927837000</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"acc_ask_volume"</span><span class="p">:</span><span class="w"> </span><span class="mf">12338.81810342</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"acc_bid_volume"</span><span class="p">:</span><span class="w"> </span><span class="mf">12281.03997938</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"change_price"</span><span class="p">:</span><span class="w"> </span><span class="mf">376000.0</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"signed_change_price"</span><span class="p">:</span><span class="w"> </span><span class="mf">376000.0</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"change_rate"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.0103274006</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"signed_change_rate"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.0103274006</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"ask_bid"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BID"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"trade_volume"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.004996</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"acc_trade_volume"</span><span class="p">:</span><span class="w"> </span><span class="mf">12633.27063535</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"trade_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"20210201"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"trade_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"192943"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"trade_timestamp"</span><span class="p">:</span><span class="w"> </span><span class="mi">1612207783000</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"acc_ask_volume"</span><span class="p">:</span><span class="w"> </span><span class="mf">6355.28646728</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"acc_bid_volume"</span><span class="p">:</span><span class="w"> </span><span class="mf">6277.98416807</span><span class="p">,</span><span class="w">
     </span><span class="nl">"highest_52_week_price"</span><span class="p">:</span><span class="w"> </span><span class="mf">48550000.0</span><span class="p">,</span><span class="w">
     </span><span class="nl">"highest_52_week_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2021-01-08"</span><span class="p">,</span><span class="w">
     </span><span class="nl">"lowest_52_week_price"</span><span class="p">:</span><span class="w"> </span><span class="mf">5489000.0</span><span class="p">,</span><span class="w">
@@ -388,9 +390,46 @@
     </span><span class="nl">"is_trading_suspended"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
     </span><span class="nl">"delisting_date"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
     </span><span class="nl">"market_warning"</span><span class="p">:</span><span class="w"> </span><span class="s2">"NONE"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"timestamp"</span><span class="p">:</span><span class="w"> </span><span class="mi">1611927837199</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"acc_trade_price_24h"</span><span class="p">:</span><span class="w"> </span><span class="mf">1136158886247.1484</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"acc_trade_volume_24h"</span><span class="p">:</span><span class="w"> </span><span class="mf">29771.6060012</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"timestamp"</span><span class="p">:</span><span class="w"> </span><span class="mi">1612207783496</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"acc_trade_price_24h"</span><span class="p">:</span><span class="w"> </span><span class="mf">503390500539.5724</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"acc_trade_volume_24h"</span><span class="p">:</span><span class="w"> </span><span class="mf">13650.71883738</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"stream_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"SNAPSHOT"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span><span class="p">{</span><span class="w">
+    </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ticker"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"KRW-ETH"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"opening_price"</span><span class="p">:</span><span class="w"> </span><span class="mf">1444000.0</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"high_price"</span><span class="p">:</span><span class="w"> </span><span class="mf">1509500.0</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"low_price"</span><span class="p">:</span><span class="w"> </span><span class="mf">1413000.0</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"trade_price"</span><span class="p">:</span><span class="w"> </span><span class="mf">1444000.0</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"prev_closing_price"</span><span class="p">:</span><span class="w"> </span><span class="mf">1444000.0</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"acc_trade_price"</span><span class="p">:</span><span class="w"> </span><span class="mf">331846956832.1946</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"change"</span><span class="p">:</span><span class="w"> </span><span class="s2">"EVEN"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"change_price"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.0</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"signed_change_price"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.0</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"change_rate"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"signed_change_rate"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"ask_bid"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ASK"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"trade_volume"</span><span class="p">:</span><span class="w"> </span><span class="mf">1.0</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"acc_trade_volume"</span><span class="p">:</span><span class="w"> </span><span class="mf">229202.315562</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"trade_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"20210201"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"trade_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"192925"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"trade_timestamp"</span><span class="p">:</span><span class="w"> </span><span class="mi">1612207765000</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"acc_ask_volume"</span><span class="p">:</span><span class="w"> </span><span class="mf">126760.03539062</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"acc_bid_volume"</span><span class="p">:</span><span class="w"> </span><span class="mf">102442.28017138</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"highest_52_week_price"</span><span class="p">:</span><span class="w"> </span><span class="mf">1626000.0</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"highest_52_week_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2021-01-25"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"lowest_52_week_price"</span><span class="p">:</span><span class="w"> </span><span class="mf">124350.0</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"lowest_52_week_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-03-13"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"trade_status"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"market_state"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ACTIVE"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"market_state_for_ios"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"is_trading_suspended"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"delisting_date"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"market_warning"</span><span class="p">:</span><span class="w"> </span><span class="s2">"NONE"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"timestamp"</span><span class="p">:</span><span class="w"> </span><span class="mi">1612207765752</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"acc_trade_price_24h"</span><span class="p">:</span><span class="w"> </span><span class="mf">354570292652.8257</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"acc_trade_volume_24h"</span><span class="p">:</span><span class="w"> </span><span class="mf">244893.27187195</span><span class="p">,</span><span class="w">
     </span><span class="nl">"stream_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"SNAPSHOT"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div><h3 id='request-parameters'>Request Parameters</h3>
