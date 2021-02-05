@@ -5718,7 +5718,19 @@ Signature 생성시 secret encoding 옵션을 확인해주세요. <b>발급된 <
 <blockquote>
 <p>Exception Example</p>
 </blockquote>
-<div class="highlight"><pre class="highlight console tab-console"><code><span class="go">HTTPError: 429 Client Error: Too Many Requests for url: https://api.upbit.com/v1/candles/minutes/1?market=KRW-BTC
+<div class="highlight"><pre class="highlight python tab-python"><code><span class="kn">from</span> <span class="nn">requests</span> <span class="kn">import</span> <span class="n">HTTPError</span>
+
+<span class="k">try</span><span class="p">:</span>
+    <span class="c1"># Do Something ..
+</span><span class="k">except</span> <span class="n">HTTPError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+    <span class="c1"># Do Something ..
+</span><span class="k">finally</span><span class="p">:</span>
+    <span class="c1"># Do Something ..
+</span></code></pre></div>
+<blockquote>
+<p>Exception Result Example</p>
+</blockquote>
+<div class="highlight"><pre class="highlight console tab-console"><code><span class="go">HTTPError: 429 Client Error: Too Many Requests for url: https://api.upbit.com/v1/~
 </span></code></pre></div>
 <p>API 요청값이 유효하지 않거나 처리 중 오류가 발생한 경우, HTTP 상태 코드와 함께 다음과 같은 형태의 JSON body가 리턴됩니다.</p>
 
