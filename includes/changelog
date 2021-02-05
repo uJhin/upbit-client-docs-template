@@ -1,9 +1,10 @@
 <h1 id='change-logs'>Change Logs</h1><h3 id='2021-02-05'>2021-02-05</h3>
-<p>Update Client Released: v1.1.6.27</p>
+<p>Update Client Released: v1.1.6.28</p>
 
 <ul>
 <li><code>models.py</code> 소스 코드 리팩토링: 구조 변경</li>
 <li>잘못된 요청을 보낼 시 하위 코드에서 <code>HTTPError</code> 예외를 발생하도록 수정</li>
+<li>WebSocket Payload Generate 부분 추가 (WebSocket 항목 참고)</li>
 </ul>
 <h3 id='2021-01-27'>2021-01-27</h3>
 <p>Update Client Released: v1.1.6.25</p>
