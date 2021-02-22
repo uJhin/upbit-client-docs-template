@@ -424,7 +424,7 @@
 <span class="p">)</span>
 
 <span class="n">event_loop</span> <span class="o">=</span> <span class="n">asyncio</span><span class="p">.</span><span class="n">get_event_loop</span><span class="p">()</span>
-<span class="n">event_loop</span><span class="p">.</span><span class="n">run_until_complete</span><span class="p">(</span><span class="n">ticker</span><span class="p">(</span><span class="n">sock</span><span class="p">,</span> <span class="n">payload</span><span class="p">))</span>
+<span class="n">event_loop</span><span class="p">.</span><span class="n">run_until_complete</span><span class="p">(</span> <span class="n">ticker</span><span class="p">(</span><span class="n">sock</span><span class="p">,</span> <span class="n">payload</span><span class="p">)</span> <span class="p">)</span>
 </code></pre></div>
 <blockquote>
 <p>Result</p>
