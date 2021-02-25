@@ -1,4 +1,13 @@
-<h1 id='change-logs'>Change Logs</h1><h2 id='2021'>2021</h2><h3 id='2021-02-23'>2021-02-23</h3>
+<h1 id='change-logs'>Change Logs</h1><h2 id='2021'>2021</h2><h3 id='2021-02-26'>2021-02-26</h3>
+<p>Update Client Released: v1.1.7.4</p>
+
+<ul>
+<li><code>UpbitWebSocket</code> 클래스 파라미터 오타 수정 <code>ping_inverval</code> -&gt; <code>ping_interval</code></li>
+<li><code>UpbitWebSocket</code> 클래스 기능 추가: <code>sock.connect</code> 섹션 참고</li>
+<li>이전보다 원활한 패키지 버전 관리를 위해 <code>pkginfo.py</code> 모듈로 분리</li>
+<li>그 외 부분적인 소스 코드 리팩토링</li>
+</ul>
+<h3 id='2021-02-23'>2021-02-23</h3>
 <p>Update Client Released: v1.1.7.3</p>
 
 <ul>

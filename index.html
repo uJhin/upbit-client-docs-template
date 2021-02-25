@@ -500,6 +500,9 @@
                     <a href="#socket-connection" class="toc-h2 toc-link" data-title="socket.Connection">socket.Connection</a>
                   </li>
                   <li>
+                    <a href="#socket-connect" class="toc-h2 toc-link" data-title="socket.connect">socket.connect</a>
+                  </li>
+                  <li>
                     <a href="#conn-send" class="toc-h2 toc-link" data-title="conn.send">conn.send</a>
                   </li>
                   <li>
@@ -620,7 +623,16 @@
 <li><strong>BTC</strong>: 3NVw2seiTQddGQwc1apqudKxuTqebpyL3s</li>
 <li><strong>ETH</strong>: 0x60dd373f59862d9df776596889b997e24bee42eb</li>
 </ul>
-<h1 id='change-logs'>Change Logs</h1><h2 id='2021'>2021</h2><h3 id='2021-02-23'>2021-02-23</h3>
+<h1 id='change-logs'>Change Logs</h1><h2 id='2021'>2021</h2><h3 id='2021-02-26'>2021-02-26</h3>
+<p>Update Client Released: v1.1.7.4</p>
+
+<ul>
+<li><code>UpbitWebSocket</code> 클래스 파라미터 오타 수정 <code>ping_inverval</code> -&gt; <code>ping_interval</code></li>
+<li><code>UpbitWebSocket</code> 클래스 기능 추가: <code>sock.connect</code> 섹션 참고</li>
+<li>이전보다 원활한 패키지 버전 관리를 위해 <code>pkginfo.py</code> 모듈로 분리</li>
+<li>그 외 부분적인 소스 코드 리팩토링</li>
+</ul>
+<h3 id='2021-02-23'>2021-02-23</h3>
 <p>Update Client Released: v1.1.7.3</p>
 
 <ul>
@@ -4866,7 +4878,44 @@ Signature 생성시 secret encoding 옵션을 확인해주세요. <b>발급된 <
 <span class="k">async</span> <span class="k">with</span> <span class="n">connection</span> <span class="k">as</span> <span class="n">conn</span><span class="p">:</span>
     <span class="c1"># Do Something
 </span>    <span class="k">pass</span>
-</code></pre></div><h2 id='conn-send'>conn.send</h2>
+</code></pre></div><h2 id='socket-connect'>socket.connect</h2>
+<p><strong>Method</strong></p>
+
+<p>URI에 연결을 시도하고 Connection 객체를 재생성합니다.</p>
+
+<p><code>UpbitWebSocket</code> 클래스의 <code>__init__</code> 메소드 호출 시 자동으로 호출됩니다.</p>
+
+<blockquote>
+<p>Example Code</p>
+</blockquote>
+<div class="highlight"><pre class="highlight python tab-python"><code><span class="kn">from</span> <span class="nn">upbit.websocket</span> <span class="kn">import</span> <span class="n">UpbitWebSocket</span>
+
+<span class="n">sock</span> <span class="o">=</span> <span class="n">UpbitWebSocket</span><span class="p">()</span>
+<span class="n">sock</span><span class="p">.</span><span class="n">connect</span><span class="p">(</span>
+    <span class="n">ping_interval</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span>
+    <span class="n">ping_timeout</span><span class="o">=</span><span class="mi">20</span>
+<span class="p">)</span>
+
+<span class="k">async</span> <span class="k">with</span> <span class="n">sock</span> <span class="k">as</span> <span class="n">conn</span><span class="p">:</span>
+    <span class="c1"># Do Something
+</span>    <span class="k">pass</span>
+</code></pre></div><h3 id='socket-connect-ping_interval-none-ping_timeout-none'>socket.connect(ping_interval=None, ping_timeout=None)</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>ping_interval</td>
+<td>ping 간격 제한 (기본값: <code>None</code>)</td>
+</tr>
+<tr>
+<td>ping_timeout</td>
+<td>ping 시간 초과 제한 (기본값: <code>None</code>)</td>
+</tr>
+</tbody></table>
+<h2 id='conn-send'>conn.send</h2>
 <p>웹 소켓에 데이터를 수신합니다.</p>
 
 <blockquote>
