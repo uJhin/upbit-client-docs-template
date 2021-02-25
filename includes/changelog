@@ -1,5 +1,5 @@
 <h1 id='change-logs'>Change Logs</h1><h2 id='2021'>2021</h2><h3 id='2021-02-26'>2021-02-26</h3>
-<p>Update Client Released: v1.1.7.4</p>
+<p>Update Client Released: v1.1.7.5</p>
 
 <ul>
 <li><code>UpbitWebSocket</code> 클래스 파라미터 오타 수정 <code>ping_inverval</code> -&gt; <code>ping_interval</code></li>
