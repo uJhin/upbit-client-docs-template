@@ -243,6 +243,13 @@
 <h2 id='conn-recv'>conn.recv</h2>
 <p>서버로부터 전달받은 바이트 스트림(bytes stream) 데이터를 받습니다.</p>
 
+<p>예외를 발생시키는 경우는 아래와 같습니다.</p>
+
+<ul>
+<li>ConnectionClosed: <code>Connection</code> 객체가 <code>Close</code> 상태가 되었을 경우</li>
+<li>RuntimeError: 두 가지 코루틴이 동시에 <code>recv</code> 를 호출하는 경우</li>
+</ul>
+
 <blockquote>
 <p>Example Code</p>
 </blockquote>
@@ -280,6 +287,7 @@
 <div class="highlight"><pre class="highlight python tab-python"><code><span class="kn">from</span> <span class="nn">upbit.websocket</span> <span class="kn">import</span> <span class="n">UpbitWebSocket</span>
 
 <span class="n">currencies</span> <span class="o">=</span> <span class="p">[</span><span class="s">'KRW-BTC'</span><span class="p">,</span> <span class="s">'KRW-ETH'</span><span class="p">]</span>
+
 <span class="n">type_field</span> <span class="o">=</span> <span class="n">UpbitWebSocket</span><span class="p">.</span><span class="n">generate_type_field</span><span class="p">(</span>
     <span class="nb">type</span><span class="o">=</span><span class="s">"trade"</span><span class="p">,</span>
     <span class="n">codes</span><span class="o">=</span><span class="n">currencies</span>
@@ -331,9 +339,10 @@
 
 <span class="n">currencies</span> <span class="o">=</span> <span class="p">[</span><span class="s">'KRW-BTC'</span><span class="p">,</span> <span class="s">'KRW-ETH'</span><span class="p">]</span>
 <span class="n">counts</span> <span class="o">=</span> <span class="p">[</span><span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">]</span>
+
 <span class="n">codes</span> <span class="o">=</span> <span class="n">UpbitWebSocket</span><span class="p">.</span><span class="n">generate_orderbook_codes</span><span class="p">(</span>
-    <span class="n">currencies</span><span class="p">,</span>
-    <span class="n">counts</span>
+    <span class="n">currencies</span><span class="o">=</span><span class="n">currencies</span><span class="p">,</span>
+    <span class="n">counts</span><span class="o">=</span><span class="n">counts</span>
 <span class="p">)</span>
 <span class="k">print</span><span class="p">(</span><span class="n">codes</span><span class="p">)</span>
 </code></pre></div>
@@ -358,8 +367,9 @@
 </tr>
 </tbody></table>
 <h2 id='upbitwebsocket-generate_payload-payload-generate'>UpbitWebSocket.generate_payload (Payload Generate)</h2>
-<p><strong>staticmethod</strong>
-웹 소켓 수신에 필요한 payload 데이터를 json 포맷 형식의 문자열로 generate 합니다.</p>
+<p><strong>staticmethod</strong></p>
+
+<p>웹 소켓 수신에 필요한 payload 데이터를 json 포맷 형식의 문자열로 generate 합니다.</p>
 
 <blockquote>
 <p>Example Code</p>
