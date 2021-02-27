@@ -351,7 +351,7 @@
                     <a href="#4d259256d6" class="toc-h2 toc-link" data-title="클라이언트 객체 생성">클라이언트 객체 생성</a>
                   </li>
                   <li>
-                    <a href="#upbitclient-access_key-secret_key-kwargs" class="toc-h2 toc-link" data-title="UpbitClient(access_key, secret_key, **kwargs)">UpbitClient(access_key, secret_key, **kwargs)</a>
+                    <a href="#upbitclient-access_key-none-secret_key-none-kwargs" class="toc-h2 toc-link" data-title="UpbitClient(access_key=None, secret_key=None, **kwargs)">UpbitClient(access_key=None, secret_key=None, **kwargs)</a>
                   </li>
                   <li>
                     <a href="#71d855acd9" class="toc-h2 toc-link" data-title="결과">결과</a>
@@ -792,7 +792,7 @@ git clone https://github.com/uJhin/python-upbit-client.git
 </code></pre></div>
 <p>설치가 완료되면 <code>from upbit.client import Upbit</code>로 패키지를 import 합니다.
 그 다음 <code>UpbitClient</code> 객체를 생성하면 클라이언트를 사용할 준비가 완료됩니다.</p>
-<h3 id='upbitclient-access_key-secret_key-kwargs'>UpbitClient(access_key, secret_key, **kwargs)</h3>
+<h3 id='upbitclient-access_key-none-secret_key-none-kwargs'>UpbitClient(access_key=None, secret_key=None, **kwargs)</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -816,6 +816,10 @@ git clone https://github.com/uJhin/python-upbit-client.git
 <td>Swagger Client Configuration</td>
 </tr>
 </tbody></table>
+
+<aside class="notice">
+    <b>NOTE</b>: <b>QUOTATION API (Market, Candle, Trade 섹션 참고)</b>에 대해서는 <code>access_key</code>와 <code>secret_key</code>가 강제되지 않습니다.
+</aside>
 <h3 id='71d855acd9'>결과</h3>
 <p>모든 요청에 대한 결과는 JSON 포맷으로 반환됩니다.</p>
 
@@ -4972,8 +4976,8 @@ Signature 생성시 secret encoding 옵션을 확인해주세요. <b>발급된 <
 <p>예외를 발생시키는 경우는 아래와 같습니다.</p>
 
 <ul>
-<li>ConnectionClosed: <code>Connection</code> 객체가 <code>Close</code> 상태가 되었을 경우</li>
-<li>RuntimeError: 두 가지 코루틴이 동시에 <code>recv</code> 를 호출하는 경우</li>
+<li><strong>ConnectionClosed</strong>: <code>Connection</code> 객체가 <code>Close</code> 상태가 되었을 경우</li>
+<li><strong>RuntimeError</strong>: 두 가지 코루틴이 동시에 <code>recv</code> 를 호출하는 경우</li>
 </ul>
 
 <blockquote>

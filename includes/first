@@ -17,7 +17,7 @@
 </code></pre></div>
 <p>설치가 완료되면 <code>from upbit.client import Upbit</code>로 패키지를 import 합니다.
 그 다음 <code>UpbitClient</code> 객체를 생성하면 클라이언트를 사용할 준비가 완료됩니다.</p>
-<h3 id='upbitclient-access_key-secret_key-kwargs'>UpbitClient(access_key, secret_key, **kwargs)</h3>
+<h3 id='upbitclient-access_key-none-secret_key-none-kwargs'>UpbitClient(access_key=None, secret_key=None, **kwargs)</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -41,6 +41,10 @@
 <td>Swagger Client Configuration</td>
 </tr>
 </tbody></table>
+
+<aside class="notice">
+    <b>NOTE</b>: <b>QUOTATION API (Market, Candle, Trade 섹션 참고)</b>에 대해서는 <code>access_key</code>와 <code>secret_key</code>가 강제되지 않습니다.
+</aside>
 <h3 id='71d855acd9'>결과</h3>
 <p>모든 요청에 대한 결과는 JSON 포맷으로 반환됩니다.</p>
 

@@ -246,8 +246,8 @@
 <p>예외를 발생시키는 경우는 아래와 같습니다.</p>
 
 <ul>
-<li>ConnectionClosed: <code>Connection</code> 객체가 <code>Close</code> 상태가 되었을 경우</li>
-<li>RuntimeError: 두 가지 코루틴이 동시에 <code>recv</code> 를 호출하는 경우</li>
+<li><strong>ConnectionClosed</strong>: <code>Connection</code> 객체가 <code>Close</code> 상태가 되었을 경우</li>
+<li><strong>RuntimeError</strong>: 두 가지 코루틴이 동시에 <code>recv</code> 를 호출하는 경우</li>
 </ul>
 
 <blockquote>
