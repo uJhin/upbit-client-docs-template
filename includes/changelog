@@ -54,6 +54,7 @@
 <p>Update Upbit OPEN API</p>
 
 <ul>
+<li>Upbit OPEN API가 업데이트 됨에 따라 아래와 같이 변경되었습니다.</li>
 <li>주문 리스트 조회 (<strong>GET</strong> /v1/orders): <code>kind</code> 요청 파라미터 제거</li>
 <li>변경 결과: <code>normal</code> (일반 주문), <code>watch</code> (예약 주문) 동시 조회</li>
 </ul>

@@ -55,19 +55,19 @@
   </li>
   <li>
     <b>
-      <img src="/images/email.ico"> Author Email: <code>ujhin942@gmail.com</code>
+      <img src="/images/email.png"> Author Email: <code>ujhin942@gmail.com</code>
     </b>
   </li>
   <li>
     <a href="https://docs.upbit.com/docs/">
       <b>
-        <img src="/images/upbit-favicon.png"/> Official OPEN API
+        <img src="/images/upbit_favicon.png"/> Official OPEN API
       </b>
     </a>
   </li>
   <li>
     <b>
-      <img src="/images/upbit-favicon.png"/> Official Support: <code>open-api@upbit.com</code>
+      <img src="/images/upbit_favicon.png"/> Official Support: <code>open-api@upbit.com</code>
     </b>
   </li>
 </ul>
